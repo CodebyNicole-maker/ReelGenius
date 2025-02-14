@@ -7,8 +7,8 @@
 ## Table of Contents
 
 - [GitHub Repository](#github-repository)
-- [Wireframe & Page Preview](#Wireframe-&-Page-Preview)
 - [Technologies Used](#technologies-used)
+- [Wireframe & Page Preview](#Wireframe-&-Page-Preview)
 - [Credits](#credits)
 - [License](#license)
 - [How to Contribute](#how-to-contribute)
@@ -18,21 +18,39 @@
 
 [GitHub Repository](https://github.com/CodebyNicole-maker/ReelGenius)
 
+## Technologies Used
+
+<div >
+	<table>
+		<tr>
+			<td><code><img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/javascript.png" alt="JavaScript" title="JavaScript"/></code></td>
+			<td><code><img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/html.png" alt="HTML" title="HTML"/></code></td>
+			<td><code><img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/css.png" alt="CSS" title="CSS"/></code></td>
+			<td><code><img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/visual_studio_code.png" alt="Visual Studio Code" title="Visual Studio Code"/></code></td>
+			<td><code><img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/canva.png" alt="Canva" title="Canva"/></code></td>
+			<td><code><img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/windows.png" alt="Windows" title="Windows"/></code></td>
+		</tr>
+	</table>
+</div>
+
 ## Wireframe & Page Preview
 
-![Database Wireframe](src/assets/portfolioaboutss.png)
+![Database Wireframe]()
 
 <!-- ![portfolio about page](src/assets/portfolioaboutss.png) -->
 
 <!-- <img src="./src/assets/portfolioresumess.PNG" alt="portfolio resume page"> -->
-
-## Technologies Used
 
 ## Deployed Webpage
 
 [Deployed Link](link)
 
 ## Credits
+
+Pedro Enderica
+Nathan Chavers
+Nicole Barger
+Olivia Smith
 
 ## License
 
