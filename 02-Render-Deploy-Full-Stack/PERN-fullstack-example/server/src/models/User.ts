@@ -7,6 +7,7 @@ interface UserAttributes {
   username: string;
   email: string;
   password: string;
+  favorite_movies:string[]
 }
 
 // Define the optional attributes for creating a new User
@@ -18,6 +19,7 @@ export class User extends Model<UserAttributes, UserCreationAttributes> implemen
   public username!: string;
   public email!: string;
   public password!: string;
+public favorite_movies!:string[];
 
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
@@ -50,7 +52,13 @@ export function UserFactory(sequelize: Sequelize): typeof User {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      favorite_movies:{
+        type:DataTypes.ARRAY(DataTypes.STRING),
+        allowNull: true,
+      },
+      
     },
+
     {
       tableName: 'users',  // Name of the table in PostgreSQL
       sequelize,// The Sequelize instance that connects to PostgreSQL
