@@ -47,10 +47,10 @@
 
 ## Credits
 
-Pedro Enderica
-Nathan Chavers
-Nicole Barger
-Olivia Smith
+- Pedro Enderica
+- Nathan Chavers
+- Nicole Barger
+- Olivia Smith
 
 ## License
 
