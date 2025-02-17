@@ -1,3 +1,4 @@
+
 import { User } from '../models/index.js';
 
 export const seedUsers = async () => {
@@ -10,4 +11,4 @@ export const seedUsers = async () => {
 };
 
 
-//Todo: favorite_movies: ['Inception', 'The Matrix', 'Interstellar'],},--- on this code ive added an array of favrotite movies.
+//Todo: favorite_movies: ['Inception', 'The Matrix', 'Interstellar'],},--- on this code ive added an array of favrotite movies
