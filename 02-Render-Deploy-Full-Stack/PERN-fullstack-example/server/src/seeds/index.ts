@@ -1,5 +1,5 @@
-import { seedUsers } from '../seeds/user-seeds';
-import { seedReviews } from '../seeds/review-seeds';
+import { seedUsers } from '../seeds/user-seeds.js';
+import { seedReviews } from '../seeds/review-seeds.js';
 import sequelize from '../config/connection.js';
 //todo Function to seed all data into the database
 const seedAll = async (): Promise<void> => {
