@@ -28,8 +28,7 @@ const searchMovie = async (query: string) =>
 //     ); */
 //     const response = await fetch(
 //       `http://www.omdbapi.com/?apikey=${
-//         import.meta.env.VITE_OMDB_API_KEY
-//       }&t=${query}
+//         import.meta.env.VITE_OMDB_API_KEY}&t=${query}
 //       }`
 //     );
 
@@ -47,3 +46,8 @@ const searchMovie = async (query: string) =>
 // };
 
 export { searchMovie };
+// export const search = (query: string): Promise<{ data: string }> => {
+//   return fetch(`https://www.omdbapi.com/?t=${query}&apikey=yourapikey`)
+//     .then((response) => response.json())
+//     .then((data) => ({ data }));
+// };

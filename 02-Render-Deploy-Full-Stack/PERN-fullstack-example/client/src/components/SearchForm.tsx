@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { searchMovie, searchTMDB } from "../utils/API";
+import { searchMovie } from "../utils/API";
 
 function SearchForm() {
   const [search, setSearch] = useState<string>("");
@@ -13,7 +13,7 @@ function SearchForm() {
     //props.searchMovie(search);
 
     const results = await searchMovie(search);
-    // const results = await searchTMDB(search);
+
     console.log(results);
     // Clear the search field
     setSearch("");

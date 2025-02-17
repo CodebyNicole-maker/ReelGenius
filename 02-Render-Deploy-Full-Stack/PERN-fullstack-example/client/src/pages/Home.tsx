@@ -5,6 +5,7 @@ import ErrorPage from "./ErrorPage";
 import UserList from "../components/Users";
 import auth from "../utils/auth";
 import SearchForm from "../components/SearchForm";
+import OMDBContainer from "../components/OMDBcontainer";
 
 const Home = () => {
   const [users, setUsers] = useState<UserData[]>([]);
@@ -44,10 +45,11 @@ const Home = () => {
   return (
     <>
       <h1>Home</h1>
-      <SearchForm />
+
+      <OMDBContainer />
       {!loginCheck ? (
         <div className="login-notice">
-          <h1>Login to view all your friends!</h1>
+          <h1>Login to view all your Movies!</h1>
         </div>
       ) : (
         <UserList users={users} />
