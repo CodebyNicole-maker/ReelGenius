@@ -22,7 +22,7 @@ function SearchForm() {
   return (
     <form onSubmit={handleFormSubmit}>
       <div className="form-group">
-        <label htmlFor="search">Search:</label>
+        <label htmlFor="search">Search: </label>
         <input
           onChange={handleInputChange}
           value={search}

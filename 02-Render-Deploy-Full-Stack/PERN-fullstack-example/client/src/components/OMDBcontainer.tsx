@@ -19,9 +19,7 @@ import SearchForm from "./SearchForm";
 
 //   // When the component loads, use the API.search method to render a default search result
 //   // The empty optional array [] will cause the hook to only run one time after the component loads
-//   useEffect(() => {
-//     searchMovie("Harry Potter");
-//   }, []);
+
 
 //   // Handler for input changes to the search form
 //   const handleInputChange = (e) => setSearch(e.target.value);
@@ -31,6 +29,8 @@ import SearchForm from "./SearchForm";
 //     e.preventDefault();
 //     searchMovie(search);
 //   };
+
+console.log(searchMovie)
 
 function OmdbContainer() {
   const [search, setSearch] = useState<string>("");
@@ -51,6 +51,13 @@ function OmdbContainer() {
     event.preventDefault();
     //props.searchMovie(search);
 
+    const result = await searchMovie(search);
+    console.log("Fetched Data:", result);
+
+
+  // useEffect(() => {
+  //   searchMovie("Harry Potter");
+  // }, []);
 
 
     try {
@@ -73,20 +80,6 @@ function OmdbContainer() {
       setMovie(null);
     }
   };
-
-  //   // Clear the search field
-  //   setSearch("");
-  // };
-  //   const results = await searchMovie(search);
-
-  //   console.log(results);
-  //   // Clear the search field
-  //   setSearch("");
-  // };
-
-  // Destructure the result object to make the code more readable, assign them to empty strings to start
-  // const { Title = "", Poster = "", Genre = "" } = result;
-
 
 
   
