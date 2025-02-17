@@ -8,17 +8,17 @@ export const seedReviews = async () => {
   //todo Bulk insert multiple reviews into the Review table
   await Review.bulkCreate([
     {
-      comment: 'Amazing movie with a complex storyline!', // Review text
-      star_review: 5,
+      comment: 'Amazing movie with a complex storyline!',
+      star_review: 5, 
       userId: users[0].id, //todo Associates this review with the first user in the database
     },
     {
-      comment: 'A masterpiece of cinema, highly recommend!', // Review text
+      comment: 'A masterpiece of cinema, highly recommend!',
       star_review: 5,
       userId: users[1].id, //todo Associates this review with the second user
     },
     {
-      comment: 'One of the best superhero movies ever made!', // Review text
+      comment: 'One of the best superhero movies ever made!',
       star_review: 4, 
       userId: users[2].id, //todo Associates this review with the third user
     },
