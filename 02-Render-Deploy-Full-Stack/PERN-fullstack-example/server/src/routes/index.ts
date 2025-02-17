@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import authRoutes from './auth-routes.js';
+import authRoutes from './peauth-routes.js';
 import apiRoutes from './api/index.js';
-import { authenticateToken } from '../middleware/auth.js';
+import { authenticateToken } from '../middleware/peauth.js';
 
 const router = Router();
 
