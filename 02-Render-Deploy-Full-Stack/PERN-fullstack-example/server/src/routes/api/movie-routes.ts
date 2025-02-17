@@ -6,7 +6,7 @@ const router = express.Router();
 router.get("/movies", async (_req: Request, res: Response) => {
   try {
     const movie = await Movie.findAll({
-      attributes: { exclude: ["password"] },
+      // attributes: { exclude: ["password"] },
     });
     res.json(movie);
   } catch (error: any) {

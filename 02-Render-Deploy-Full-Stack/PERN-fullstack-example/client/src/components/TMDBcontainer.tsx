@@ -4,10 +4,10 @@ import Row from "./UI/Row";
 import Col from "./UI/Col";
 import Card from "./UI/Card";
 import SearchForm from "./SearchForm";
-import MovieDetail from "./MovieDetail";
+import MovieDetails from "./MovieDetails";
 import API from "../utils/API";
 
-const OmdbContainer = () => {
+const TMDBContainer = () => {
   // Set state for the search result and the search query
   const [result, setResult] = useState({});
   const [search, setSearch] = useState("");
@@ -82,4 +82,4 @@ const OmdbContainer = () => {
   );
 };
 
-export default OmdbContainer;
+export default TMDBContainer;

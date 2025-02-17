@@ -1,4 +1,4 @@
-function MovieDetail(props) {
+function MovieDetails(props) {
   return (
     <div className="text-center">
       <img
@@ -14,4 +14,4 @@ function MovieDetail(props) {
   );
 }
 
-export default MovieDetail;
+export default MovieDetails;
