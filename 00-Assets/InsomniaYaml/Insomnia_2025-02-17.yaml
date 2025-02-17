@@ -1,0 +1,289 @@
+_type: export
+__export_format: 4
+__export_date: 2025-02-17T16:57:39.358Z
+__export_source: insomnia.desktop.app:v10.3.1
+resources:
+  - _id: req_0e63a9702b0448bd831e043ee7cd5481
+    parentId: fld_0cd01fa20e0245a6b9625567124f9fc5
+    modified: 1739560573013
+    created: 1739559888269
+    url: http://localhost:3001/api/users/1
+    name: Get a User by ID
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/10.3.1
+    authentication: {}
+    metaSortKey: -1739560564422
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_0cd01fa20e0245a6b9625567124f9fc5
+    parentId: fld_05f8b91c04574779a7e55603fcdfe664
+    modified: 1739563107425
+    created: 1739560553031
+    name: Public Requests
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1739563105063
+    environmentType: kv
+    _type: request_group
+  - _id: fld_05f8b91c04574779a7e55603fcdfe664
+    parentId: wrk_88b74318c0774dfeb7c49fd3435c84b0
+    modified: 1739563101069
+    created: 1739563101069
+    name: Users
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1739563101069
+    environmentType: kv
+    _type: request_group
+  - _id: wrk_88b74318c0774dfeb7c49fd3435c84b0
+    parentId: null
+    modified: 1739559746243
+    created: 1739559746243
+    name: ReelGenius
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_dbb4fad35eff45ea827b7d42d87dc5c0
+    parentId: fld_0cd01fa20e0245a6b9625567124f9fc5
+    modified: 1739560574257
+    created: 1739559809191
+    url: http://localhost:3001/api/users
+    name: Get All Users
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/10.3.1
+    authentication: {}
+    metaSortKey: -1739560564372
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_0808794270084b398c629153ba1aea8b
+    parentId: fld_0cd01fa20e0245a6b9625567124f9fc5
+    modified: 1739560577159
+    created: 1739560081079
+    url: http://localhost:3001/api/users
+    name: Create a New Profile
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "mononito",
+        	"email": "pedro@torstig.us",
+        	"password": "quiere1",
+        	"role": "admin"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/10.3.1
+    authentication: {}
+    metaSortKey: -1739560564347
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_5b2b8d03e24b4463be3dece2f9b83f3d
+    parentId: fld_0cd01fa20e0245a6b9625567124f9fc5
+    modified: 1739560564351
+    created: 1739559955119
+    url: http://localhost:3001/api/users/mononito
+    name: Get User by Username
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/10.3.1
+    authentication: {}
+    metaSortKey: -1739560564322
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_13bea94b54fd43c19a13283c2f833858
+    parentId: fld_72c9a8ed2310433fa17ed5fa5b63dcf2
+    modified: 1739560613078
+    created: 1739560292555
+    url: http://localhost:3001/auth/1
+    name: Update User by ID
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "liv-5",
+        	"email": "oliviasmith@gmail.com",
+        	"password": "password1",
+        	"role": "admin"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/10.3.1
+    authentication: {}
+    metaSortKey: -1739560608546
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_72c9a8ed2310433fa17ed5fa5b63dcf2
+    parentId: fld_05f8b91c04574779a7e55603fcdfe664
+    modified: 1739563104995
+    created: 1739560603712
+    name: Authorized Requests
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1739563104963
+    environmentType: kv
+    _type: request_group
+  - _id: req_c163e92302fa4e33a56afed7ea3ec2b3
+    parentId: fld_72c9a8ed2310433fa17ed5fa5b63dcf2
+    modified: 1739560611513
+    created: 1739560203158
+    url: http://localhost:3001/api/users/seed
+    name: Seed Database
+    description: ""
+    method: POST
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/10.3.1
+    authentication: {}
+    metaSortKey: -1739560608446
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_c7622437cd484e6eb95a4127c5d2db41
+    parentId: fld_72c9a8ed2310433fa17ed5fa5b63dcf2
+    modified: 1739560608369
+    created: 1739560423500
+    url: http://localhost:3001/auth/users
+    name: Login Profile
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "mononito",
+        	"password": "quiere1"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/10.3.1
+    authentication: {}
+    metaSortKey: -1739560608346
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_389f2338207a418a9d04683981d37a9a
+    parentId: fld_72c9a8ed2310433fa17ed5fa5b63dcf2
+    modified: 1739560614862
+    created: 1739560463667
+    url: http://localhost:3001/auth/1
+    name: Delete User by ID
+    description: ""
+    method: DELETE
+    body:
+      mimeType: application/json
+      text: ""
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/10.3.1
+    authentication: {}
+    metaSortKey: -1739560608246
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_65be7273859168f45adc3eddbd293968ae4a2f05
+    parentId: wrk_88b74318c0774dfeb7c49fd3435c84b0
+    modified: 1739559746246
+    created: 1739559746246
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1739559746246
+    environmentType: kv
+    _type: environment
+  - _id: jar_65be7273859168f45adc3eddbd293968ae4a2f05
+    parentId: wrk_88b74318c0774dfeb7c49fd3435c84b0
+    modified: 1739559746251
+    created: 1739559746251
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
