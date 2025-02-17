@@ -1,4 +1,4 @@
-import { seedUsers } from '../seeds/user-seeds.js';
+import { seedUsers } from '../seeds/user-seeds';
 import { seedReviews } from '../seeds/review-seeds.js';
 import sequelize from '../config/connection.js';
 //todo Function to seed all data into the database
