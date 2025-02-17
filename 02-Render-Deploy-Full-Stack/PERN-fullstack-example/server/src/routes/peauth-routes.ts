@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import { User, Review } from '../models/index';  // Import the Review model along with User
+import { User, Review } from '../models/index.js';  // Import the Review model along with User
 import jwt from 'jsonwebtoken';  // Import the JSON Web Token library
 import bcrypt from 'bcrypt';  // Import the bcrypt library for password hashing
 
