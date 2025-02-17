@@ -1,5 +1,5 @@
--- DROP DATABASE
+-- Drop the database if it exists
 DROP DATABASE IF EXISTS reelgenius_db;
 
--- CREATE DATABASE
+-- Create a new database
 CREATE DATABASE reelgenius_db;
