@@ -4,7 +4,7 @@ import type { UserData } from "../interfaces/UserData";
 import ErrorPage from "./ErrorPage";
 import UserList from "../components/Users";
 import auth from "../utils/auth";
-import SearchForm from "../components/SearchForm";
+// import SearchForm from "../components/SearchForm";
 import OMDBContainer from "../components/OMDBcontainer";
 
 const Home = () => {
