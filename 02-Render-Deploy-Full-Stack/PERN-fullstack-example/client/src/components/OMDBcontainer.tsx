@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { searchMovie } from "../utils/API";
 import SearchForm from "./SearchForm";
 
@@ -60,7 +60,7 @@ function OmdbContainer() {
     try {
       const result = await searchMovie(query);
       console.log("Fetched Data:", result);
- 
+
       if (result.data.Response === "True") {
         const movieData: Movie = {
           Title: result.data.Title,
@@ -77,8 +77,6 @@ function OmdbContainer() {
       setMovie(null);
     }
   };
-
- 
 
   /* Fall back to default header if `Title` is undefined
   Does `Title` exist? If so, render the `MovieDetail` card 
