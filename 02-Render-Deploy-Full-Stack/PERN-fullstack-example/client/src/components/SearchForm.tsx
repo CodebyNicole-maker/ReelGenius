@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import { searchMovie } from "../utils/API";
 
-function SearchForm() {
-  const [search, setSearch] = useState<string>("");
+interface SearchFormProps {
+  search: string;
+  setSearch: React.Dispatch<React.SetStateAction<string>>;
+  onSearchSubmit: (query: string) => void;
+}
+
+function SearchForm({ search, setSearch, onSearchSubmit }: SearchFormProps) {
+  // const [search, setSearch] = useState<string>("");
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
@@ -10,11 +16,9 @@ function SearchForm() {
 
   const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    //props.searchMovie(search);
 
-    const results = await searchMovie(search);
-
-    console.log(results);
+    if (search.trim() === "") return;
+    onSearchSubmit(search);
     // Clear the search field
     setSearch("");
   };
