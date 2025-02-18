@@ -1,5 +1,5 @@
-import { useState} from "react";
-import { searchMovie } from "../utils/API";
+import { useState } from "react";
+import { searchMovie, getRecommendations } from "../utils/API";
 import SearchForm from "./SearchForm";
 
 // const OmdbContainer = () => {
@@ -28,6 +28,7 @@ import SearchForm from "./SearchForm";
 //     searchMovie(search);
 //   };
 
+console.log(getRecommendations);
 console.log(searchMovie);
 
 function OmdbContainer() {
@@ -60,7 +61,7 @@ function OmdbContainer() {
     try {
       const result = await searchMovie(query);
       console.log("Fetched Data:", result);
- 
+
       if (result.data.Response === "True") {
         const movieData: Movie = {
           Title: result.data.Title,
@@ -78,8 +79,6 @@ function OmdbContainer() {
     }
   };
 
- 
-
   /* Fall back to default header if `Title` is undefined
   Does `Title` exist? If so, render the `MovieDetail` card 
   If not, render a different header */
@@ -91,7 +90,7 @@ function OmdbContainer() {
           <h1>{movie?.Title || "Search for a Movie to Begin"}</h1>
           {movie ? (
             <div>
-              <h2>{movie.Title}</h2>
+              {/* <h2>{movie.Title}</h2> */}
               <img src={movie.Poster} alt={movie.Title} />
               <p>{movie.Genre}</p>
             </div>
