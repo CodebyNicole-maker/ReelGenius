@@ -14,9 +14,12 @@ const TMDB_API_ACCESS_TOKEN = import.meta.env.VITE_TMDB_API_ACCESS_TOKEN;
 
 const searchMovie = async (query: string) =>
   axios.get(`https://www.omdbapi.com/?apikey=${VITE_OMDB_API_KEY}&t=${query}`);
+// <<<<<<< feature/Liv
 
-// separate function for recommendations
-//api.themoviedb.org/3/movie/920/recommendations?language=en-US&page=1
+// // separate function for recommendations
+// //api.themoviedb.org/3/movie/920/recommendations?language=en-US&page=1
+
+// >>>>>>> main
 
 // export default { search };
 
