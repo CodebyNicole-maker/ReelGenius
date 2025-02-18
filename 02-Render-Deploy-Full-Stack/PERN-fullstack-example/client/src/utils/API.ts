@@ -1,5 +1,7 @@
 import axios from "axios";
 
+
+
 const VITE_OMDB_API_KEY = import.meta.env.VITE_OMDB_API_KEY;
 
 // const url = "https://api.themoviedb.org/3/configuration";
