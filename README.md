@@ -70,7 +70,7 @@ This project is perfect for **learning API integration, TypeScript, and frontend
 
 - Pedro Enderica
 - Nathan Chavers
-- Nicole Barger - 
+- Nicole Barger
 - Olivia Smith
 
 ## License
@@ -79,7 +79,7 @@ This project is licensed under [MIT](https://opensource.org/licenses/MIT)
 
 ## How to Contribute
 
-You can contact me if you would like to contribute
+[You can contact me if you would like to contribute](https://github.com/CodebyNicole-maker/ReelGenius/wiki)
 
 ## Questions
 
