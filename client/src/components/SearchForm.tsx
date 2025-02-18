@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { searchMovie } from "../utils/API";
+import React from "react";
 
 interface SearchFormProps {
   search: string;
