@@ -4,23 +4,39 @@ import dotenv from 'dotenv';
 dotenv.config(); //todo Load environment variables
 
 
-console.log('Connecting to database:', process.env.DB_NAME || 'NOT SET');
-console.log('Using user:', process.env.DB_USER || 'NOT SET');
+console.log('Connecting to database:', process.env.DB_NAME);
+console.log('Using user:', process.env.DB_USER);
 
 
-const sequelize = new Sequelize(
-  process.env.DB_NAME || 'reelgenius_db',  
-  process.env.DB_USER || 'postgres', 
-  process.env.DB_PASSWORD,  
-  {
-    host: 'localhost',
-    dialect: 'postgres',
-    dialectOptions: {
-      decimalNumbers: true,
+// const sequelize = new Sequelize(
+//   process.env.DB_NAME || 'reelgenius_db',  
+//   process.env.DB_USER || 'postgres', 
+//   process.env.DB_PASSWORD,  
+//   {
+//     host: 'localhost',
+//     dialect: 'postgres',
+//     dialectOptions: {
+//       decimalNumbers: true,
+//     },
+//     logging: false,
+//   }
+// );
+
+let sequelize;
+
+if (process.env.DB_URL) {
+  sequelize = new Sequelize(process.env.DB_URL);
+} else {
+  sequelize = new Sequelize(
+    process.env.DB_NAME,
+    process.env.DB_USER,
+    process.env.DB_PASSWORD,
+    {
+      host: 'localhost',
+      dialect: 'postgres',
     },
-    logging: false,
-  }
-);
+  );
+}
 
 //todo Check database connection
 sequelize.authenticate()
