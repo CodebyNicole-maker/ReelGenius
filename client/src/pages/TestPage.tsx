@@ -23,6 +23,7 @@ const Test = () => {
 return (
     <>
         <h1>Test</h1>
+        <h2>Favorites Carousel</h2>
         <FavoritesCarousel items={[]} sendInteraction={function (): void {
             throw new Error("Function not implemented.");
         } }/>

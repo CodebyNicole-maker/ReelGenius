@@ -16,6 +16,16 @@
 
 //Todo: HTML for exporting the MovieModal component
 
+function MovieModal() {
 
+
+
+    return (
+        <div>
+            <h1>Movie Modal</h1>
+        </div>
+    )
+}
 
 //Todo: export MovieModal
+export default MovieModal;
