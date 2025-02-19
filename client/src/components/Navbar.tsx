@@ -44,12 +44,16 @@ const Navbar = () => {
               <button className="btn nav-btn" type="button">
                 <Link className="nav-link" to="/login">Login</Link>
               </button>{" "}
-              {/* <button className="btn nav-btn" type="button">
-                <Link className="nav-link" to="/profile">Profile</Link>
-              </button> */}
+              <button className="btn nav-btn" type="button">
+                <Link className="nav-link" to="/profile">Reviews</Link>
+              </button>
             </>
           ) : (
-            <><button className="btn nav-btn" type="button">
+            <>
+              <button className="btn nav-btn" type="button">
+                <Link className="nav-link" to="/reviews">Reviews</Link>
+              </button>{" "}
+              <button className="btn nav-btn" type="button">
                 <Link className="nav-link" to="/profile">Profile</Link>
               </button>{" "}
               <button
