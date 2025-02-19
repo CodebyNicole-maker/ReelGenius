@@ -6,6 +6,13 @@ interface SearchFormProps {
   onSearchSubmit: (query: string) => void;
 }
 
+
+
+//Todo: Add css, bootstrap, or inline styling to match search bar in wireframe
+//? This is currently being handled in OMDBContainer
+//? Options are to import from OMDBContainer or make new search bar component
+
+
 function SearchForm({ search, setSearch, onSearchSubmit }: SearchFormProps) {
   // const [search, setSearch] = useState<string>("");
 

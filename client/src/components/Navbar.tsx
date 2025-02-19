@@ -18,6 +18,9 @@ const Navbar = () => {
     checkLogin(); // Call checkLogin() function to update loginCheck state
   }, [loginCheck]); // Dependency array ensures useEffect runs when loginCheck changes
 
+  //ToDo: Style buttons and add a logo consistent with wireframe
+  //ToDo: Add a favorites button in the center of the navbar - should also display username when logged in
+
   return (
     <div className="display-flex justify-space-between align-center py-2 px-5 mint-green">
       <h1>Please Login or Sign Up</h1>
