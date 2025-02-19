@@ -33,8 +33,6 @@ export { searchMovie, getRecommendations };
 // // separate function for recommendations
 // //api.themoviedb.org/3/movie/920/recommendations?language=en-US&page=1
 
-// >>>>>>> main
-
 // ----------------------------------------------------------//
 
 // const searchTMDB = async (query: string) => {
