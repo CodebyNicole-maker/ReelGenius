@@ -1,7 +1,7 @@
-import { useState, useEffect, useLayoutEffect } from "react";
-import { retrieveUsers } from "../api/userAPI";
-import type { UserData } from "../interfaces/UserData";
-import ErrorPage from "./ErrorPage";
+// import { useState, useEffect, useLayoutEffect } from "react";
+// import { retrieveUsers } from "../api/userAPI";
+// import type { UserData } from "../interfaces/UserData";
+// import ErrorPage from "./ErrorPage";
 // import UserList from "../components/Users";
 // import auth from "../utils/auth";
 
@@ -22,7 +22,7 @@ const Test = () => {
 
 return (
     <>
-        <h1>Test</h1>
+        <h1 className="pb-5">Test Page</h1>
         <h2>Favorites Carousel</h2>
         <FavoritesCarousel items={[]} sendInteraction={function (): void {
             throw new Error("Function not implemented.");
