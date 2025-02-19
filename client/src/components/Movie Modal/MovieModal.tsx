@@ -16,16 +16,26 @@
 
 //Todo: HTML for exporting the MovieModal component
 
-function MovieModal() {
+import React from 'react';
 
-
-
-    return (
-        <div>
-            <h1>Movie Modal</h1>
-        </div>
-    )
+interface MovieModalProps {
+    movie: string;
+    onClose: () => void;
 }
 
-//Todo: export MovieModal
+const MovieModal: React.FC<MovieModalProps> = ({ movie, onClose }) => {
+    return (
+        <div className="modal-overlay">
+            <div className="modal">
+                <h2>{movie}</h2>
+                <button onClick={onClose} className="close-button">Close</button>
+            </div>
+        </div>
+    );
+};
+
 export default MovieModal;
+
+
+
+//Todo: export MovieModal
