@@ -18,55 +18,26 @@ const MovieModal: React.FC<MovieModalProps> = ({ show, onHide }) => {
     <Modal
       show={show}
       onHide={onHide}
+      centered
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
-      centered
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Movie Details
-        </Modal.Title>
+        <Modal.Title>Movie Details</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <div>
-          <OmdbContainer />
-        </div>
+        <OmdbContainer />
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={onHide}>Close</Button>
+        <Button variant="secondary" onClick={onHide}>
+          Close
+        </Button>
       </Modal.Footer>
     </Modal>
   );
 };
 
-const App: React.FC = () => {
-  const [modalShow, setModalShow] = useState<boolean>(false);
-  const [search, setSearch] = useState<string>("");
-
-  function handleFormSubmit(query: string): void {
-    setSearch(query);
-    setModalShow(true); // Opens modal upon form submission
-  }
-
-  return (
-    <>
-      {/* Search form should NOT be inside the Button */}
-      <SearchForm
-        search={search}
-        setSearch={setSearch}
-        onSearchSubmit={handleFormSubmit}
-      />
-
-      <Button variant="primary" onClick={() => setModalShow(true)}>
-        Open Movie Search
-      </Button>
-
-      <MovieModal show={modalShow} onHide={() => setModalShow(false)} />
-    </>
-  );
-};
-
-export { App, MovieModal };
+export default MovieModal;
 
 // function MovieModal() {
 //   const [isOpen, setIsOpen] = useState(false);
