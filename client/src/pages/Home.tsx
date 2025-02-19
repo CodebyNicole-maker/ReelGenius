@@ -1,8 +1,9 @@
 import { useState, useEffect, useLayoutEffect, SetStateAction } from "react";
-import { retrieveUsers } from "../api/userAPI";
+// import { retrieveUsers } from "../api/userAPI";
 import type { UserData } from "../interfaces/UserData";
 import ErrorPage from "./ErrorPage";
 import auth from "../utils/auth";
+import { retrieveUser } from "../api/nateTheGreateAPI";
 
 
 //! Test Imports Below
@@ -15,24 +16,21 @@ import auth from "../utils/auth";
 
 
 const Home = () => {
-  const [users, setUsers] = useState<UserData[]>([]);
+  const [user, setUser] = useState<UserData | null>(null); // Store a single user
   const [error, setError] = useState(false);
   const [loginCheck, setLoginCheck] = useState(false);
 
-  //Todo: Add a search bar to search for movies
-  //? This is currently being handled in OMDBContainer
-
-  //Todo: change fetchUsers to only pull one user
-  //Todo: This will require changing UserList to only display one user
-  useEffect(() => {
-    if (loginCheck) {
-      fetchUsers();
-    }
-  }, [loginCheck]);
-
+  // Check if the user is logged in
   useLayoutEffect(() => {
     checkLogin();
   }, []);
+
+  // Fetch the logged-in user's data
+  useEffect(() => {
+    if (loginCheck) {
+      fetchUser();
+    }
+  }, [loginCheck]);
 
   const checkLogin = () => {
     if (auth.loggedIn()) {
@@ -40,12 +38,16 @@ const Home = () => {
     }
   };
 
-  const fetchUsers = async () => {
+  // Fetch the logged-in user
+  const fetchUser = async () => {
     try {
-      const data = await retrieveUsers();
-      setUsers(data);
+      const userId = auth.getProfile().id; // Get the logged-in user's ID
+      if (userId) {
+        const data = await retrieveUser(userId); // Fetch the user by ID
+        setUser(data);
+      }
     } catch (err) {
-      console.error("Failed to retrieve tickets:", err);
+      console.error("Failed to retrieve user:", err);
       setError(true);
     }
   };
@@ -72,7 +74,7 @@ const Home = () => {
           <h1>Login to view all your Movies!</h1>
         </div>
       ) : (
-        <UserList users={users} />
+        <UserList user={user} /> 
       )}
     </>
   );
@@ -100,3 +102,4 @@ const Home = () => {
 // };
 
 export default Home;
+
