@@ -72,18 +72,20 @@ const Home = () => {
   // import OMDBContainer from "../components/OMDBcontainer";
   return (
     <>
-      <button className="searchmovie-btn" onClick={() => setModalShow(true)}>
-        SEARCH MOVIES
-      </button>
-      {/* <OMDBContainer /> */}
-      <MovieModal show={modalShow} onHide={() => setModalShow(false)} />
-      {!loginCheck ? (
-        <div className="login-notice">
-          <h1>Login to view all your Movies!</h1>
-        </div>
-      ) : (
-        <UserList user={user} />
-      )}
+      <section className="home-section">
+        <button className="searchmovie-btn" onClick={() => setModalShow(true)}>
+          SEARCH MOVIES
+        </button>
+        {/* <OMDBContainer /> */}
+        <MovieModal show={modalShow} onHide={() => setModalShow(false)} />
+        {!loginCheck ? (
+          <div className="login-notice">
+            <h1>Login to view all your Movies!</h1>
+          </div>
+        ) : (
+          <UserList user={user} />
+        )}
+      </section>
     </>
   );
 };
