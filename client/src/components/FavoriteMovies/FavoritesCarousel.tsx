@@ -55,7 +55,7 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ key, text, icon, btnText, btnLink, btnIcon, headerImg }) => {
 
     const openUrl = (url: string, label: string) => {
-        window.open(url, '_blank');
+        window.open(url, label='_blank');
     }
 
     const headText = text.length > 30 ? text.substring(0, 30) + '...' : text;
