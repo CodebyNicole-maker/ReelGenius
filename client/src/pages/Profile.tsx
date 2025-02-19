@@ -7,6 +7,7 @@ import UserList from '../components/Users';
 import auth from '../utils/auth';
 import type { UserData } from '../interfaces/UserData';
 
+
 const Profile: React.FC = () => {
     const [user, setUser] = useState<UserData | null>(null);
     const [selectedMovie, setSelectedMovie] = useState<string | null>(null);

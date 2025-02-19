@@ -37,20 +37,23 @@ const Navbar = () => {
               <button className="btn nav-btn" type="button">
                 <Link className="nav-link" to="/login">Login</Link>
               </button>{" "}
-              <button className="btn nav-btn" type="button">
+              {/* <button className="btn nav-btn" type="button">
                 <Link className="nav-link" to="/profile">Profile</Link>
-              </button>
+              </button> */}
             </>
           ) : (
-            <button
-              className="btn"
-              type="button"
-              onClick={() => {
-                auth.logout(); 
-              }}
-            >
-              Logout
-            </button>
+            <><button className="btn nav-btn" type="button">
+                <Link className="nav-link" to="/profile">Profile</Link>
+              </button>{" "}
+              <button
+                className="btn nav-btn"
+                type="button"
+                onClick={() => {
+                  auth.logout();
+                } }
+              >
+                  Logout
+                </button></>
           )
         }
       </div>
