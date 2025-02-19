@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import auth from "../utils/auth";
 import "../styles/NavBar.css"
+
+
+
 const Navbar = () => {
   // State to track the login status
   const [loginCheck, setLoginCheck] = useState(false);
@@ -23,7 +26,11 @@ const Navbar = () => {
 
   return (
     <div className="display-flex justify-space-between align-center py-2 px-5 deep-violet">
-      <Link to='/'><h1>Reel Genius</h1></Link>
+      <Link to='/'>
+      <div className="logo">
+        <img src="src/components/ReelGenius-dark.png" alt="ReelGenius Logo" className="logo"/>
+        </div>
+      </Link>
       <div>
         {
           // Conditional rendering based on loginCheck state
