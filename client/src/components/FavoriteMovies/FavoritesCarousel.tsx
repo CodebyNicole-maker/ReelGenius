@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import MovieModal from '../Movie Modal/MovieModal';
 import type { UserData } from '../../interfaces/UserData'; 
-import './carousel.css'; 
+import '../../styles/carousel.css'; 
 
 interface FavoritesCarouselProps {
     user: UserData | null; 
@@ -17,6 +17,9 @@ const FavoritesCarousel: React.FC<FavoritesCarouselProps> = ({ user }) => {
             setFavoriteMovies(user.favorite_movies || []); 
         }
     }, [user]);
+    // const openUrl = (url: string, label: string) => {
+    //     window.open(url, label='_blank');
+    // }
 
     const toggleFavorite = async (movie: string) => {
         // Update the favoriteMovies list immediately
