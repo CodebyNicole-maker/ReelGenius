@@ -1,7 +1,22 @@
 import axios from "axios";
 
-const VITE_OMDB_API_KEY = import.meta.env.VITE_OMDB_API_KEY;
-const TMDB_API_ACCESS_TOKEN = import.meta.env.VITE_TMDB_API_ACCESS_TOKEN;
+const VITE_TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+
+const searchMovie = async (query: string) =>
+  axios.get(
+    `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=${VITE_TMDB_API_KEY}`
+  );
+
+const getRecommendations = async (movieID: string) =>
+  axios.get(
+    `https://api.themoviedb.org/3/movie/${movieID}/recommendations?api_key=${TMDB_API_KEY}`
+  );
+
+export { searchMovie, getRecommendations };
+
+//! This is the original code that was in the API.ts file
+// const VITE_OMDB_API_KEY = import.meta.env.VITE_OMDB_API_KEY;
+// const TMDB_API_ACCESS_TOKEN = import.meta.env.VITE_TMDB_API_ACCESS_TOKEN;
 
 // const url = "https://api.themoviedb.org/3/configuration";
 // const options = {
@@ -12,18 +27,15 @@ const TMDB_API_ACCESS_TOKEN = import.meta.env.VITE_TMDB_API_ACCESS_TOKEN;
 //   },
 // };
 
-const searchMovie = async (query: string) =>
-  axios.get(`https://www.omdbapi.com/?apikey=${VITE_OMDB_API_KEY}&t=${query}`);
-// <<<<<<< feature/Liv
+// const searchMovie = async (query: string) =>
+//   axios.get(`https://www.omdbapi.com/?apikey=${VITE_OMDB_API_KEY}&t=${query}`);
 
 // // separate function for recommendations
 // //api.themoviedb.org/3/movie/920/recommendations?language=en-US&page=1
 
 // >>>>>>> main
 
-// export default { search };
-
-// ----------------------------------------------------------- //
+// ----------------------------------------------------------//
 
 // const searchTMDB = async (query: string) => {
 //   try {
@@ -39,28 +51,28 @@ const searchMovie = async (query: string) =>
 //       }`
 //     );
 
-const getRecommendations = async () => {
-  try {
-    const response = await fetch(
-      "https://api.themoviedb.org/3/movie/{movie_id}/recommendations",
-      {
-        method: "GET",
-        headers: {
-          authorizaation: `Bearer ${TMDB_API_ACCESS_TOKEN}`,
-          "content-type": "application/json",
-        },
-      }
-    );
-    if (!response.ok) {
-      throw new Error("invalid API response, check the network tab");
-    }
-    const data = response.json();
-    return data;
-  } catch (error) {
-    console.log("an error occurred", error);
-    return [];
-  }
-};
+// const getRecommendations = async () => {
+//   try {
+//     const response = await fetch(
+//       `https://api.themoviedb.org/3/movie/${movieID}/recommendations`,
+//       {
+//         method: "GET",
+//         headers: {
+//           authorization: `Bearer ${TMDB_API_ACCESS_TOKEN}`,
+//           "content-type": "application/json",
+//         },
+//       }
+//     );
+//     if (!response.ok) {
+//       throw new Error("invalid API response, check the network tab");
+//     }
+//     const data = response.json();
+//     return data;
+//   } catch (error) {
+//     console.log("an error occurred", error);
+//     return [];
+//   }
+// };
 
 //     if (!response.ok) {
 //       throw new Error("invalid API response, check the network tab");
@@ -74,7 +86,7 @@ const getRecommendations = async () => {
 //     return [];
 //   }
 // };
-export { searchMovie, getRecommendations };
+
 // export const search = (query: string): Promise<{ data: string }> => {
 //   return fetch(`https://www.omdbapi.com/?t=${query}&apikey=yourapikey`)
 //     .then((response) => response.json())

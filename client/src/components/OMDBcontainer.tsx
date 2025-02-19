@@ -2,32 +2,6 @@ import { useState } from "react";
 import { searchMovie, getRecommendations } from "../utils/API";
 import SearchForm from "./SearchForm";
 
-// const OmdbContainer = () => {
-//   // Set state for the search result and the search query
-//   const [result, setResult] = useState({});
-//   const [search, setSearch] = useState("");
-
-//   // When the search form is submitted, use the API.search method to search for the movie(s)
-//   const searchMovie = (query) =>
-//     API.search(query)
-//       .then((res) => {
-//         setResult(res.data);
-//         setSearch("");
-//       })
-//       .catch((err) => console.log(err));
-
-//   // When the component loads, use the API.search method to render a default search result
-//   // The empty optional array [] will cause the hook to only run one time after the component loads
-
-//   // Handler for input changes to the search form
-//   const handleInputChange = (e) => setSearch(e.target.value);
-
-//   // Handler for what happens when the search form is submitted
-//   const handleFormSubmit = (e) => {
-//     e.preventDefault();
-//     searchMovie(search);
-//   };
-
 console.log(getRecommendations);
 console.log(searchMovie);
 
@@ -37,25 +11,11 @@ function OmdbContainer() {
     Title: string;
     Poster: string;
     Genre: string;
+    MovieID: string;
   }
 
   const [movie, setMovie] = useState<Movie | null>(null);
   // State to store movie detail
-
-  //   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //     setSearch(event.target.value);
-  //   };
-  // console.log(search)
-  // const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault();
-  //   //props.searchMovie(search);
-
-  //   const result = await searchMovie(search);
-  //   console.log("Fetched Data:", result.data);
-
-  // useEffect(() => {
-  //   searchMovie("Harry Potter");
-  // }, []);
 
   const handleFormSubmit = async (query: string) => {
     try {
@@ -64,9 +24,10 @@ function OmdbContainer() {
 
       if (result.data.Response === "True") {
         const movieData: Movie = {
-          Title: result.data.Title,
-          Poster: result.data.Poster,
-          Genre: result.data.Genre,
+          Title: result.data.data.results.title,
+          Poster: result.data.data.results.poster_path,
+          Genre: result.data.data.results.genre_ids,
+          MovieID: result.data.data.results.id,
         };
 
         setMovie(movieData);
@@ -111,3 +72,45 @@ function OmdbContainer() {
 }
 
 export default OmdbContainer;
+
+//! Original code
+// const OmdbContainer = () => {
+//   // Set state for the search result and the search query
+//   const [result, setResult] = useState({});
+//   const [search, setSearch] = useState("");
+
+//   // When the search form is submitted, use the API.search method to search for the movie(s)
+//   const searchMovie = (query) =>
+//     API.search(query)
+//       .then((res) => {
+//         setResult(res.data);
+//         setSearch("");
+//       })
+//       .catch((err) => console.log(err));
+
+//   // When the component loads, use the API.search method to render a default search result
+//   // The empty optional array [] will cause the hook to only run one time after the component loads
+
+//   // Handler for input changes to the search form
+//   const handleInputChange = (e) => setSearch(e.target.value);
+
+//   // Handler for what happens when the search form is submitted
+//   const handleFormSubmit = (e) => {
+//     e.preventDefault();
+//     searchMovie(search);
+//   };
+
+//   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+//     setSearch(event.target.value);
+//   };
+// console.log(search)
+// const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+//   event.preventDefault();
+//   //props.searchMovie(search);
+
+//   const result = await searchMovie(search);
+//   console.log("Fetched Data:", result.data);
+
+// useEffect(() => {
+//   searchMovie("Harry Potter");
+// }, []);
