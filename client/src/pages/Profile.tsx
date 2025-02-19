@@ -5,6 +5,7 @@ import FavoritesCarousel from '../components/FavoriteMovies/FavoritesCarousel';
 import auth from '../utils/auth';
 import type { UserData } from '../interfaces/UserData';
 
+
 const Profile: React.FC = () => {
     const [user, setUser] = useState<UserData | null>(null);
     
