@@ -5,12 +5,10 @@ import SearchForm from "./SearchForm";
 console.log(getRecommendations);
 console.log(searchMovie);
 
-
 //Todo: edit following code to only store the movie and the following movie details
 //? this will be used in favorites caurosel and movie modal
 //! - Title - Poster - Genre - MovieID - Plot - Director - Actors - Released - Runtime - Rating - Votes - BoxOffice - Production - Website
-//? Not 
-
+//? Not
 
 function OmdbContainer() {
   const [search, setSearch] = useState<string>("");
@@ -18,24 +16,26 @@ function OmdbContainer() {
     Title: string;
     Poster: string;
     Genre: string;
+    Plot: string;
+    Released: string;
+    MovieID: string;
+  }
+
+  interface Recommendation {
+    Title: string;
+    Poster: string;
     MovieID: string;
   }
 
   const [movie, setMovie] = useState<Movie | null>(null);
   // State to store movie detail
+  const [recommendations, setRecommendations] = useState<Recommendation[]>([]);
+  // State to store recommendations
 
   const handleFormSubmit = async (query: string) => {
     try {
       const result = await searchMovie(query);
       console.log("Fetched Data:", result);
-
-      // if (result.data.Response === "True") {
-      //   const movieData: Movie = {
-      //     Title: result.data.results.title,
-      //     Poster: result.data.results.poster_path,
-      //     Genre: result.data.results.genre_ids,
-      //     MovieID: result.data.results.id,
-      //   };
 
       if (result.data.results.length > 0) {
         const movieDetails = result.data.results[0]; // Get first movie from search results
@@ -63,21 +63,44 @@ function OmdbContainer() {
         };
 
         const movieData: Movie = {
-          Title: movieDetails.title, // Title is correctly retrieved
+          Title: movieDetails.title,
           Poster: `https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`, // Construct full image URL
           Genre: movieDetails.genre_ids
             .map((id: number) => genreMap[id] || "Unknown")
             .join(", "), // Convert genre array to a string
+          Plot: movieDetails.overview,
+          Released: movieDetails.release_date,
           MovieID: movieDetails.id.toString(), // Store the movie ID
         };
 
         setMovie(movieData);
+
+        const recommendationsResult = await getRecommendations(
+          movieData.MovieID
+        );
+        console.log("Recommendations Data:", recommendationsResult);
+
+        if (recommendationsResult.data.results.length > 0) {
+          const recommendationList = recommendationsResult.data.results
+            .slice(0, 3)
+            .map((rec: { title: string; poster_path: string; id: number }) => ({
+              Title: rec.title,
+              Poster: `https://image.tmdb.org/t/p/w500${rec.poster_path}`,
+              MovieID: rec.id.toString(),
+            }));
+
+          setRecommendations(recommendationList);
+        } else {
+          setRecommendations([]);
+        }
       } else {
         setMovie(null);
+        setRecommendations([]);
       }
     } catch (error) {
       console.error("Error fetching this movie", error);
       setMovie(null);
+      setRecommendations([]);
     }
   };
 
@@ -88,24 +111,42 @@ function OmdbContainer() {
   return (
     <section>
       <div>
-        <div>
-          <h1>{movie?.Title || "Search for a Movie to Begin"}</h1>
-          {movie ? (
-            <div>
-              <img src={movie.Poster} alt={movie.Title} />
-              <p>{movie.Genre}</p>
+        <h1>{movie?.Title || "Search for a Movie to Begin"}</h1>
+        {movie ? (
+          <div>
+            <img src={movie.Poster} alt={movie.Title} />
+            <ul>
+              <li>{movie.Genre}</li>
+              <li>{movie.Plot}</li>
+              <li>{movie.Released}</li>
+            </ul>
+          </div>
+        ) : (
+          <h3>No Results to Display</h3>
+        )}
+      </div>
+      <div>
+        <h2>Recommended Movies</h2>
+        <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+          {recommendations.map((rec) => (
+            <div key={rec.MovieID} style={{ textAlign: "center" }}>
+              <img
+                src={rec.Poster}
+                alt={rec.Title}
+                style={{ width: "100px" }}
+              />
+              <p>{rec.Title}</p>
             </div>
-          ) : (
-            <h3>No Results to Display</h3>
-          )}
+          ))}
         </div>
-        <div>
-          <SearchForm
-            search={search}
-            setSearch={setSearch}
-            onSearchSubmit={handleFormSubmit}
-          />
-        </div>
+      </div>
+
+      <div>
+        <SearchForm
+          search={search}
+          setSearch={setSearch}
+          onSearchSubmit={handleFormSubmit}
+        />
       </div>
     </section>
   );
@@ -154,3 +195,11 @@ export default OmdbContainer;
 // useEffect(() => {
 //   searchMovie("Harry Potter");
 // }, []);
+
+// if (result.data.Response === "True") {
+//   const movieData: Movie = {
+//     Title: result.data.results.title,
+//     Poster: result.data.results.poster_path,
+//     Genre: result.data.results.genre_ids,
+//     MovieID: result.data.results.id,
+//   };
