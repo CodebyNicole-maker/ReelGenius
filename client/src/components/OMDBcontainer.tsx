@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { searchMovie, getRecommendations } from "../utils/API";
+import { searchMovie, getRecommendations, getMoviebyID } from "../utils/API";
 import SearchForm from "./SearchForm";
 import "../styles/OMDBcontainer.css";
 
 console.log(getRecommendations);
 console.log(searchMovie);
+console.log(getMoviebyID);
 
 //Todo: edit following code to only store the movie and the following movie details
 // ? this will be used in favorites caurosel and movie modal

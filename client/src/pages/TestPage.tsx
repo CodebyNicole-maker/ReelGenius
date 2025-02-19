@@ -5,6 +5,7 @@
 // import UserList from "../components/Users";
 // import auth from "../utils/auth";
 
+
 //Todo: Import components to test
 //! import FavoritesCarousel from "../components/FavoriteMovies/FavoritesCarousel";
 import Loader from "../components/LoadingPage";
@@ -33,6 +34,9 @@ const Test = () => {
 // )
 
 // Loading Page Test
+
+
+
 return (
     <>
         <h1 className="pb-5">Test Page</h1>
