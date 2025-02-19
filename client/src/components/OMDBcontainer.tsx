@@ -63,13 +63,17 @@ function OmdbContainer() {
         };
 
         const movieData: Movie = {
+
           Title: movieDetails.title,
+
           Poster: `https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`, // Construct full image URL
           Genre: movieDetails.genre_ids
             .map((id: number) => genreMap[id] || "Unknown")
             .join(", "), // Convert genre array to a string
+
           Plot: movieDetails.overview,
           Released: movieDetails.release_date,
+
           MovieID: movieDetails.id.toString(), // Store the movie ID
         };
 
@@ -111,6 +115,7 @@ function OmdbContainer() {
   return (
     <section>
       <div>
+
         <h1>{movie?.Title || "Search for a Movie to Begin"}</h1>
         {movie ? (
           <div>
@@ -136,6 +141,8 @@ function OmdbContainer() {
                 style={{ width: "100px" }}
               />
               <p>{rec.Title}</p>
+
+              
             </div>
           ))}
         </div>

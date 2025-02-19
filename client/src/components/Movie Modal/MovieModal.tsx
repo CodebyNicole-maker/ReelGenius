@@ -4,12 +4,12 @@
 import OmdbContainer from "../OMDBcontainer";
 
 //Todo: Create a container to display OMDBContainer data
-function Modal() {
+function MovieModal() {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <div className="App">
+    <div>
       <Button variant="primary" onClick={toggle}>
         Send
       </Button>
