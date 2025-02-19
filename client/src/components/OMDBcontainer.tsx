@@ -85,7 +85,6 @@ function OmdbContainer() {
           <h1>{movie?.Title || "Search for a Movie to Begin"}</h1>
           {movie ? (
             <div>
-              {/* <h2>{movie.Title}</h2> */}
               <img src={movie.Poster} alt={movie.Title} />
               <p>{movie.Genre}</p>
             </div>
