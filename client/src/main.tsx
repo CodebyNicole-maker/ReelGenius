@@ -9,8 +9,9 @@ import ErrorPage from './pages/ErrorPage.tsx';
 import Home from './pages/Home.tsx';
 import Login from './pages/Login.tsx';
 import SignUp from './pages/SignUp.tsx';
+import Profile from './pages/Profile.tsx';
 import Test from './pages/TestPage.tsx';
-// import Profile from './pages/Profile.tsx';
+
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,15 @@ const router = createBrowserRouter([
       {
         path: '/signup',
         element: <SignUp />
+      },
+      {
+        path: '/profile',
+        element: <Profile />
+    
+      },
+      {
+        path: '/reviews',
+        element: <Reviews />
       }, 
       {
         path: '/test',
