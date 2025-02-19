@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { searchMovie, getRecommendations, getMoviebyID } from "../utils/API";
 import SearchForm from "./SearchForm";
-import '../styles/OMDBcontainer.css'
+import "../styles/OMDBcontainer.css";
 
 console.log(getRecommendations);
 console.log(searchMovie);
@@ -65,7 +65,6 @@ function OmdbContainer() {
         };
 
         const movieData: Movie = {
-
           Title: movieDetails.title,
 
           Poster: `https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`, // Construct full image URL
@@ -116,8 +115,7 @@ function OmdbContainer() {
 
   return (
     <section>
-      <div>
-
+      <section>
         <h1>{movie?.Title || "Search for a Movie to Begin"}</h1>
         {movie ? (
           <div>
@@ -127,12 +125,19 @@ function OmdbContainer() {
               <li>{movie.Plot}</li>
               <li>{movie.Released}</li>
             </ul>
+            <button
+              onClick={() => toggleFavorite(favoriteMovies[currentIndex])}
+            >
+              {favoriteMovies.includes(favoriteMovies[currentIndex])
+                ? "❤️"
+                : "🤍"}
+            </button>
           </div>
         ) : (
           <h3>No Results to Display</h3>
         )}
-      </div>
-      <div>
+      </section>
+      <section>
         <h2>Recommended Movies</h2>
         <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
           {recommendations.map((rec) => (
@@ -143,20 +148,18 @@ function OmdbContainer() {
                 style={{ width: "100px" }}
               />
               <p>{rec.Title}</p>
-
-              
             </div>
           ))}
         </div>
-      </div>
+      </section>
 
-      <div>
+      <section>
         <SearchForm
           search={search}
           setSearch={setSearch}
           onSearchSubmit={handleFormSubmit}
         />
-      </div>
+      </section>
     </section>
   );
 }

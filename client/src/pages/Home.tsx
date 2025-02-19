@@ -4,22 +4,28 @@ import type { UserData } from "../interfaces/UserData";
 import ErrorPage from "./ErrorPage";
 import auth from "../utils/auth";
 import OMDBContainer from "../components/OMDBcontainer";
-import '../styles/Home.css'
+import "../styles/Home.css";
 import { retrieveUser } from "../api/nateTheGreateAPI";
+import MovieModal from "../components/Movie-Modal/MovieModal";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../styles/Home.css";
 
 //! Test Imports Below
-  import UserList from "../components/Users";
+import UserList from "../components/Users";
+import SearchForm from "../components/SearchForm";
 
-
-// import SearchForm from "../components/SearchForm";
-
-
+interface MovieModalProps {
+  show: boolean;
+  onHide: () => void;
+}
 
 const Home = () => {
   const [user, setUser] = useState<UserData | null>(null); // Store a single user
   const [error, setError] = useState(false);
   const [loginCheck, setLoginCheck] = useState(false);
+
+  const [modalShow, setModalShow] = useState(false);
 
   // Check if the user is logged in
   useLayoutEffect(() => {
@@ -61,26 +67,26 @@ const Home = () => {
 
   //Todo: Add "movies-tvshows" styling from center of wireframe home page
 
-
   //! OMDB Container code version
   // import UserList from "../components/Users";
   // import OMDBContainer from "../components/OMDBcontainer";
   return (
     <>
-      <h1>Home</h1>
-
-      <OMDBContainer />
+      <button className="searchmovie-btn" onClick={() => setModalShow(true)}>
+        SEARCH MOVIES
+      </button>
+      {/* <OMDBContainer /> */}
+      <MovieModal show={modalShow} onHide={() => setModalShow(false)} />
       {!loginCheck ? (
         <div className="login-notice">
           <h1>Login to view all your Movies!</h1>
         </div>
       ) : (
-        <UserList user={user} /> 
+        <UserList user={user} />
       )}
     </>
   );
 };
-
 
 //! Testing for new Home version
 // return (
@@ -97,10 +103,9 @@ const Home = () => {
 //         } } />
 //       </h2>
 
-//       </div> 
+//       </div>
 //   </>
 // )
 // };
 
 export default Home;
-
