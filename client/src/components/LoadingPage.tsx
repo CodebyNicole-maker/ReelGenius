@@ -4,13 +4,14 @@ import './styles/loading.css';
 import '../assets/wireframeAssets/loadingElement1-static.png';
 import '../assets/wireframeAssets/loadingElement2-static.png';
 import '../assets/wireframeAssets/loadingElementgf.gif';
-import { useState, useCallback } from "react";
+import { useState, useCallback, Children } from "react";
 import { LoadingOverlay } from "@achmadk/react-loading-overlay";
+import BounceLoader from "react-spinner";
 
 
 
 //Todo: Utilize styles and effects to make animated loading element
-const Loader = () => {
+function Loader ({active, children}) {
     const [isActive, setActive] = useState(false);
     const handleButtonClicked = useCallback (() => {
         setActive(value => !value);
@@ -19,9 +20,10 @@ const Loader = () => {
     return (
         <LoadingOverlay
             active={isActive}
-            spinner
+            spinner={<BounceLoader />}
             text="Loading your content..."
         >
+            {children}
             <div style={{ height: 200}}>
                 <p>Some content or children</p>
                 <button onClick={handleButtonClicked}>
