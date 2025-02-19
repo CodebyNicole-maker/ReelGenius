@@ -19,6 +19,7 @@
  */
 body {
   margin: 0;
+  background-color: #000000;
 }
 
 /**
@@ -36,7 +37,9 @@ h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
-
+h1,h2,h3,h4,h5,h6,p,label {
+color: #fff;
+}
 /* Grouping content
    ========================================================================== */
 /**
@@ -142,9 +145,7 @@ img {
   border-style: none;
 }
 
-.mint-green{
-  background-color: #e3f9e5;
-}
+
 /* Forms
    ========================================================================== */
 /**
@@ -193,7 +194,7 @@ button,
 [type='button'],
 [type='reset'],
 [type='submit'] {
-  -webkit-appearance: button;
+  appearance: button;
 }
 
 /**
