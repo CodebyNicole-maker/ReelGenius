@@ -12,3 +12,8 @@
     color:#fff;
     font-size: 1.2rem;
 }
+
+.logo{
+    src: url(./ReelGenius-dark.png);
+    width: 300px;
+}
