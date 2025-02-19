@@ -15,25 +15,27 @@ interface MovieModalProps {
 
 const MovieModal: React.FC<MovieModalProps> = ({ show, onHide }) => {
   return (
-    <Modal
-      show={show}
-      onHide={onHide}
-      centered
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-    >
-      <Modal.Header closeButton>
-        <Modal.Title>Movie Details</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <OmdbContainer />
-      </Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={onHide}>
-          Close
-        </Button>
-      </Modal.Footer>
-    </Modal>
+    <section className="movie-modal">
+      <Modal
+        show={show}
+        onHide={onHide}
+        centered
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Movie Details</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <OmdbContainer />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={onHide}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </section>
   );
 };
 
