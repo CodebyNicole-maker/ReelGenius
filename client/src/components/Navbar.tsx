@@ -37,6 +37,9 @@ const Navbar = () => {
           !loginCheck ? (
             <>
               {/* Render sign up button if user is not logged in */}
+              <button className="btn nav-btn" type="button">
+                <Link className="nav-link" to="/profile">Reviews</Link>
+              </button>{" "}
               <button className="btn nav-btn " type="button">
                 <Link className="nav-link" to="/signup">Sign Up</Link>
               </button>{" "}
@@ -44,9 +47,6 @@ const Navbar = () => {
               <button className="btn nav-btn" type="button">
                 <Link className="nav-link" to="/login">Login</Link>
               </button>{" "}
-              <button className="btn nav-btn" type="button">
-                <Link className="nav-link" to="/profile">Reviews</Link>
-              </button>
             </>
           ) : (
             <>
