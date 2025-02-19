@@ -1,14 +1,15 @@
-import { useState, useEffect, useLayoutEffect, SetStateAction } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 // import { retrieveUsers } from "../api/userAPI";
 import type { UserData } from "../interfaces/UserData";
 import ErrorPage from "./ErrorPage";
 import auth from "../utils/auth";
+import OMDBContainer from "../components/OMDBcontainer";
+import '../styles/Home.css'
 import { retrieveUser } from "../api/nateTheGreateAPI";
 
 
 //! Test Imports Below
   import UserList from "../components/Users";
-  import OMDBContainer from "../components/OMDBcontainer";
 
 
 // import SearchForm from "../components/SearchForm";

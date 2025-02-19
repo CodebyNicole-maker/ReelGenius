@@ -134,7 +134,9 @@
     text-decoration: none;
   }
   
-  .carousel-card-button:hover {}
+  .carousel-card-button:hover {
+    
+  }
   
   
   @keyframes next {
