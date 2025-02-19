@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { searchMovie, getRecommendations } from "../utils/API";
 import SearchForm from "./SearchForm";
+import '../styles/OMDBcontainer.css'
 
 console.log(getRecommendations);
 console.log(searchMovie);
 
 //Todo: edit following code to only store the movie and the following movie details
-//? this will be used in favorites caurosel and movie modal
-//! - Title - Poster - Genre - MovieID - Plot - Director - Actors - Released - Runtime - Rating - Votes - BoxOffice - Production - Website
-//? Not
+// ? this will be used in favorites caurosel and movie modal
+// ! - Title - Poster - Genre - MovieID - Plot - Director - Actors - Released - Runtime - Rating - Votes - BoxOffice - Production - Website
+// ? Not
 
 function OmdbContainer() {
   const [search, setSearch] = useState<string>("");
