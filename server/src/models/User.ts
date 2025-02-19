@@ -19,7 +19,8 @@ export class User extends Model<UserAttributes, UserCreationAttributes> implemen
   public username!: string;
   public email!: string;
   public password!: string;
-public favorite_movies!:string[];
+  public favorite_movies!:string[];
+  // public reviewsId?: string[];
 
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
@@ -56,6 +57,10 @@ export function UserFactory(sequelize: Sequelize): typeof User {
         type:DataTypes.ARRAY(DataTypes.STRING),
         allowNull: true,
       },
+      // reviewsID:{
+      //   type:DataTypes.ARRAY(DataTypes.STRING),
+      //   allowNull: true,
+      // }
       
     },
 
