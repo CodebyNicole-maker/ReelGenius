@@ -6,7 +6,7 @@ import UserList from "../components/Users";
 import auth from "../utils/auth";
 // import SearchForm from "../components/SearchForm";
 import OMDBContainer from "../components/OMDBcontainer";
-
+import '../styles/Home.css'
 const Home = () => {
   const [users, setUsers] = useState<UserData[]>([]);
   const [error, setError] = useState(false);
