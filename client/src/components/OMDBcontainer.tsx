@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { searchMovie, getRecommendations } from "../utils/API";
 import SearchForm from "./SearchForm";
-import '../styles/OMDBcontainer.css'
+import "../styles/OMDBcontainer.css";
 
 console.log(getRecommendations);
 console.log(searchMovie);
@@ -124,6 +124,13 @@ function OmdbContainer() {
               <li>{movie.Plot}</li>
               <li>{movie.Released}</li>
             </ul>
+            <button
+              onClick={() => toggleFavorite(favoriteMovies[currentIndex])}
+            >
+              {favoriteMovies.includes(favoriteMovies[currentIndex])
+                ? "❤️"
+                : "🤍"}
+            </button>
           </div>
         ) : (
           <h3>No Results to Display</h3>

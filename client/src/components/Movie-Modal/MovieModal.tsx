@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import React, { useState } from "react";
 import OmdbContainer from "../OMDBcontainer";
-import SearchForm from "../SearchForm";
+// import SearchForm from "../SearchForm";
 
 interface MovieModalProps {
   show: boolean;

@@ -7,12 +7,13 @@ import OMDBContainer from "../components/OMDBcontainer";
 import "../styles/Home.css";
 import { retrieveUser } from "../api/nateTheGreateAPI";
 import MovieModal from "../components/Movie-Modal/MovieModal";
+
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../styles/Home.css";
 
 //! Test Imports Below
 import UserList from "../components/Users";
-
-// import SearchForm from "../components/SearchForm";
+import SearchForm from "../components/SearchForm";
 
 interface MovieModalProps {
   show: boolean;
@@ -71,8 +72,9 @@ const Home = () => {
   // import OMDBContainer from "../components/OMDBcontainer";
   return (
     <>
-      <h1>Home</h1>
-      <button onClick={() => setModalShow(true)}>SEARCH MOVIES</button>
+      <button className="searchmovie-btn" onClick={() => setModalShow(true)}>
+        SEARCH MOVIES
+      </button>
       {/* <OMDBContainer /> */}
       <MovieModal show={modalShow} onHide={() => setModalShow(false)} />
       {!loginCheck ? (

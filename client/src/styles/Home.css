@@ -1,0 +1,35 @@
+.searchmovie-btn {
+  background-color: #39ff14; /* Neon Green */
+  color: black;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 0 10px #39ff14, 0 0 40px #39ff14;
+  transition: 0.3s ease-in-out;
+  margin: 50px;
+}
+
+.searchmovie-btn:hover {
+  background-color: #32e600;
+  box-shadow: 0 0 20px #32e600, 0 0 60px #32e600;
+  transform: scale(1.1);
+}
+
+.searchmovie-btn:active {
+  background-color: #28c700;
+  box-shadow: 0 0 15px #28c700, 0 0 50px #28c700;
+  transform: scale(1);
+}
+
+main {
+  padding: 20px;
+  width: 80%;
+  margin: 100px;
+  text-align: center;
+  background: rgba(151, 150, 150, 0.959);
+  border-radius: 25px;
+}
