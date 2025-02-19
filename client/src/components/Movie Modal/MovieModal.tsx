@@ -1,16 +1,11 @@
 //Todo: Import RecsContainer from RecsContainer
 //Todo: Import styles as needed
 //Todo: Import OMDBcontainer to fetch movie data
-// import OmdbContainer from "../OMDBcontainer";
-// import { useState } from "react";
+//Todo: Create a container to display OMDBContainer data
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-
-//Todo: Create a container to display OMDBContainer data
-
 import React, { useState } from "react";
 import OmdbContainer from "../OMDBcontainer";
-// import { Button, Modal } from "react-bootstrap";
 import SearchForm from "../SearchForm";
 
 interface MovieModalProps {
@@ -50,7 +45,7 @@ const App: React.FC = () => {
 
   function handleFormSubmit(query: string): void {
     setSearch(query);
-    setModalShow(true);
+    setModalShow(true); // Opens modal upon form submission
   }
 
   return (
@@ -146,4 +141,3 @@ export { App, MovieModal };
 //Todo: HTML for exporting the MovieModal component
 
 //Todo: export MovieModal
-export default MovieModal;
