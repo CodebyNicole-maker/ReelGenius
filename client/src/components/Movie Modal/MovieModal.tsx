@@ -140,4 +140,4 @@ export { App, MovieModal };
 
 //Todo: HTML for exporting the MovieModal component
 
-//Todo: export MovieModal
+//Todo: export MovieMod

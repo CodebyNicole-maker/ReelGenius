@@ -1,31 +1,36 @@
-import { useState, useEffect, useLayoutEffect } from "react";
-import { retrieveUsers } from "../api/userAPI";
+import { useState, useEffect, useLayoutEffect, SetStateAction } from "react";
+// import { retrieveUsers } from "../api/userAPI";
 import type { UserData } from "../interfaces/UserData";
 import ErrorPage from "./ErrorPage";
-import UserList from "../components/Users";
 import auth from "../utils/auth";
+import { retrieveUser } from "../api/nateTheGreateAPI";
+
+
+//! Test Imports Below
+  import UserList from "../components/Users";
+  import OMDBContainer from "../components/OMDBcontainer";
+
+
 // import SearchForm from "../components/SearchForm";
-import OMDBContainer from "../components/OMDBcontainer";
+
+
 
 const Home = () => {
-  const [users, setUsers] = useState<UserData[]>([]);
+  const [user, setUser] = useState<UserData | null>(null); // Store a single user
   const [error, setError] = useState(false);
   const [loginCheck, setLoginCheck] = useState(false);
 
-  //Todo: Add a search bar to search for movies
-  //? This is currently being handled in OMDBContainer
-
-  //Todo: change fetchUsers to only pull one user
-  //Todo: This will require changing UserList to only display one user
-  useEffect(() => {
-    if (loginCheck) {
-      fetchUsers();
-    }
-  }, [loginCheck]);
-
+  // Check if the user is logged in
   useLayoutEffect(() => {
     checkLogin();
   }, []);
+
+  // Fetch the logged-in user's data
+  useEffect(() => {
+    if (loginCheck) {
+      fetchUser();
+    }
+  }, [loginCheck]);
 
   const checkLogin = () => {
     if (auth.loggedIn()) {
@@ -33,12 +38,16 @@ const Home = () => {
     }
   };
 
-  const fetchUsers = async () => {
+  // Fetch the logged-in user
+  const fetchUser = async () => {
     try {
-      const data = await retrieveUsers();
-      setUsers(data);
+      const userId = auth.getProfile().id; // Get the logged-in user's ID
+      if (userId) {
+        const data = await retrieveUser(userId); // Fetch the user by ID
+        setUser(data);
+      }
     } catch (err) {
-      console.error("Failed to retrieve tickets:", err);
+      console.error("Failed to retrieve user:", err);
       setError(true);
     }
   };
@@ -51,6 +60,10 @@ const Home = () => {
 
   //Todo: Add "movies-tvshows" styling from center of wireframe home page
 
+
+  //! OMDB Container code version
+  // import UserList from "../components/Users";
+  // import OMDBContainer from "../components/OMDBcontainer";
   return (
     <>
       <h1>Home</h1>
@@ -61,10 +74,32 @@ const Home = () => {
           <h1>Login to view all your Movies!</h1>
         </div>
       ) : (
-        <UserList users={users} />
+        <UserList user={user} /> 
       )}
     </>
   );
 };
 
+
+//! Testing for new Home version
+// return (
+//   <>
+//     <div>
+//       <h1>
+//       <img src="../assets/wireframeAssets/HomeLogo.png" alt="Home Logo" />
+//       </h1>
+//       <h2>
+//         <SearchForm search={""} setSearch={function (value: SetStateAction<string>): void {
+//           throw new Error("Function not implemented.");
+//         } } onSearchSubmit={function (query: string): void {
+//           throw new Error("Function not implemented.");
+//         } } />
+//       </h2>
+
+//       </div> 
+//   </>
+// )
+// };
+
 export default Home;
+

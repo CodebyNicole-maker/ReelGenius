@@ -1,54 +1,134 @@
-//Todo: Import styles as needed
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import FavoritesCarousel from '../components/FavoriteMovies/FavoritesCarousel';
+import OMDBcontainer from '../components/OMDBcontainer';
+import MovieModal from '../components/Movie Modal/MovieModal';
+import UserList from '../components/Users';
+import auth from '../utils/auth';
+import type { UserData } from '../interfaces/UserData';
 
-//Todo: Import FavoritesCarousel from FavoritesCarousel
+const Profile: React.FC = () => {
+    const [user, setUser] = useState<UserData | null>(null);
+    const [selectedMovie, setSelectedMovie] = useState<string | null>(null);
 
-//Todo: Import OMDBcontainer to fetch movie data
+    useEffect(() => {
+        if (auth.loggedIn()) {
+            const userData = auth.getProfile();
+            setUser({
+                id: userData.id ?? null,
+                username: userData.username ?? 'Guest',
+                email: userData.email ?? null,
+                favorite_movies: userData.favorite_movies || [],
+            });
+        }
+    }, []);
 
-//Todo: Import MovieModal to display movie details
+    const handleRecommendClick = (movie: string) => {
+        setSelectedMovie(movie);
+    };
 
-//Todo: Import UserList to display user data
-//? UserList is currently pulling all users and should only pull logged in user
-//? To display and populate username and favorite movies in the profile.tsx page
+    return (
+        <div className="profile-container">
+            <style>
+                {`
+                .profile-container {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: flex-start;
+                    padding: 20px;
+                    background-color: #f4f4f4;
+                    min-height: 100vh;
+                }
 
-//Todo: Import LoadingPage to display loading animation
+                .heading {
+                    font-size: 2.5rem;
+                    font-weight: bold;
+                    color: #333;
+                    margin-bottom: 20px;
+                }
 
-//Todo: Import useEffect and useState hooks from React
-//Todo: Import react-router-dom to use the Link component
+                .profile-section {
+                    width: 100%;
+                    max-width: 1200px;
+                    margin-bottom: 30px;
+                }
 
-//Todo: Import auth to check if user is logged in
-//? Striken code is used to check if user is logged in
+                .button {
+                    padding: 12px 20px;
+                    font-size: 1.2rem;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease;
+                }
 
+                .watch-now-button {
+                    background-color: #007BFF;
+                    color: white;
+                }
 
-//// const [loginCheck, setLoginCheck] = useState(false);
+                .watch-now-button:hover {
+                    background-color: #0056b3;
+                }
 
-//   // Function to check if the user is logged in using auth.loggedIn() method
-////   const checkLogin = () => {
-////     if (auth.loggedIn()) {
-////       setLoginCheck(true); // Set loginCheck to true if user is logged in
-////     }
-////   };
+                .recommend-button {
+                    background-color: #28a745;
+                    color: white;
+                }
 
-//   // useEffect hook to run checkLogin() on component mount and when loginCheck state changes
-////   useEffect(() => {
-////     checkLogin(); // Call checkLogin() function to update loginCheck state
-////   }, [loginCheck]); // Dependency array ensures useEffect runs when loginCheck changes
+                .recommend-button:hover {
+                    background-color: #218838;
+                }
 
+                .link {
+                    color: #007BFF;
+                    text-decoration: none;
+                    font-size: 1.1rem;
+                    margin-top: 20px;
+                    display: inline-block;
+                    text-align: center;
+                }
+                `}
+            </style>
 
+            <h1 className="heading">Welcome, {user?.username || 'Guest'}!</h1>
 
+            <div className="profile-section">
+                <h2>Your Favorite Movies</h2>
+                {user && user.favorite_movies && user.favorite_movies.length > 0 ? (
+                    <FavoritesCarousel user={user} />
+                ) : (
+                    <p>No favorite movies added yet.</p>
+                )}
+            </div>
 
-//Todo: Create a container to include the OMDBcontainer, MovieModal, and UserList components
+            <div className="profile-section">
+                <h2>Movie Recommendations</h2>
+                <OMDBcontainer />
+            </div>
 
-//Todo: Add imported FavoritesCarousel component to the container
-    
+            <div>
+                <button className="button watch-now-button">Watch Now</button>
+                {user && user.favorite_movies && user.favorite_movies.length > 0 && (
+                    <button
+                        className="button recommend-button"
+                        onClick={() => handleRecommendClick(user.favorite_movies![0])}
+                    >
+                        Recommend
+                    </button>
+                )}
+            </div>
 
-//Todo: Add a loading animation to display while fetching data
+            {selectedMovie && (
+                <MovieModal movie={selectedMovie} onClose={() => setSelectedMovie(null)} />
+            )}
 
-//Todo: Fetch movie data based on user's favorite movies from the TMDB_API
+            <UserList user={user} />
 
-//Todo: Populate the carousel with the user's favorite movies
+            <Link to="/" className="link">Go Back to Home</Link>
+        </div>
+    );
+};
 
-
-//Todo: Add stylized buttons that say Watch Now and Recommend
-//! Watch Now does not have a function yet
-
-//Todo: Recommend button will display MovieModal, from the currently highlighted movie
+export default Profile;
