@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import './index.css';
-import './carousel.css';
+import './styles/index.css';
+import './styles/carousel.css';
 
 import App from './App.tsx';
 
@@ -11,7 +11,7 @@ import Login from './pages/Login.tsx';
 import SignUp from './pages/SignUp.tsx';
 import Profile from './pages/Profile.tsx';
 import Test from './pages/TestPage.tsx';
-import Reviews from './pages/Reviews.tsx';
+
 
 const router = createBrowserRouter([
   {
@@ -43,7 +43,11 @@ const router = createBrowserRouter([
       {
         path: '/test',
         element: <Test />
-      }
+      },
+      // {
+      //   path: '/profile',
+      //   element: <Profile />
+      // }, 
     ]
   }
 ])
