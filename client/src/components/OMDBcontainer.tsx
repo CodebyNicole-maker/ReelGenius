@@ -29,12 +29,46 @@ function OmdbContainer() {
       const result = await searchMovie(query);
       console.log("Fetched Data:", result);
 
-      if (result.data.Response === "True") {
+      // if (result.data.Response === "True") {
+      //   const movieData: Movie = {
+      //     Title: result.data.results.title,
+      //     Poster: result.data.results.poster_path,
+      //     Genre: result.data.results.genre_ids,
+      //     MovieID: result.data.results.id,
+      //   };
+
+      if (result.data.results.length > 0) {
+        const movieDetails = result.data.results[0]; // Get first movie from search results
+
+        const genreMap: { [key: number]: string } = {
+          28: "Action",
+          12: "Adventure",
+          16: "Animation",
+          35: "Comedy",
+          80: "Crime",
+          99: "Documentary",
+          18: "Drama",
+          10751: "Family",
+          14: "Fantasy",
+          36: "History",
+          27: "Horror",
+          10402: "Music",
+          9648: "Mystery",
+          10749: "Romance",
+          878: "Science Fiction",
+          10770: "TV Movie",
+          53: "Thriller",
+          10752: "War",
+          37: "Western",
+        };
+
         const movieData: Movie = {
-          Title: result.data.data.results.title,
-          Poster: result.data.data.results.poster_path,
-          Genre: result.data.data.results.genre_ids,
-          MovieID: result.data.data.results.id,
+          Title: movieDetails.title, // Title is correctly retrieved
+          Poster: `https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`, // Construct full image URL
+          Genre: movieDetails.genre_ids
+            .map((id: number) => genreMap[id] || "Unknown")
+            .join(", "), // Convert genre array to a string
+          MovieID: movieDetails.id.toString(), // Store the movie ID
         };
 
         setMovie(movieData);
@@ -58,7 +92,6 @@ function OmdbContainer() {
           <h1>{movie?.Title || "Search for a Movie to Begin"}</h1>
           {movie ? (
             <div>
-              {/* <h2>{movie.Title}</h2> */}
               <img src={movie.Poster} alt={movie.Title} />
               <p>{movie.Genre}</p>
             </div>

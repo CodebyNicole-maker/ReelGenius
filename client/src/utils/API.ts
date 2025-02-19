@@ -9,7 +9,7 @@ const searchMovie = async (query: string) =>
 
 const getRecommendations = async (movieID: string) =>
   axios.get(
-    `https://api.themoviedb.org/3/movie/${movieID}/recommendations?api_key=${TMDB_API_KEY}`
+    `https://api.themoviedb.org/3/movie/${movieID}/recommendations?api_key=${VITE_TMDB_API_KEY}`
   );
 
 export { searchMovie, getRecommendations };
