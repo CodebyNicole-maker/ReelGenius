@@ -5,6 +5,13 @@ import SearchForm from "./SearchForm";
 console.log(getRecommendations);
 console.log(searchMovie);
 
+
+//Todo: edit following code to only store the movie and the following movie details
+//? this will be used in favorites caurosel and movie modal
+//! - Title - Poster - Genre - MovieID - Plot - Director - Actors - Released - Runtime - Rating - Votes - BoxOffice - Production - Website
+//? Not 
+
+
 function OmdbContainer() {
   const [search, setSearch] = useState<string>("");
   interface Movie {

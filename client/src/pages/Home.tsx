@@ -12,6 +12,11 @@ const Home = () => {
   const [error, setError] = useState(false);
   const [loginCheck, setLoginCheck] = useState(false);
 
+  //Todo: Add a search bar to search for movies
+  //? This is currently being handled in OMDBContainer
+
+  //Todo: change fetchUsers to only pull one user
+  //Todo: This will require changing UserList to only display one user
   useEffect(() => {
     if (loginCheck) {
       fetchUsers();
@@ -41,6 +46,10 @@ const Home = () => {
   if (error) {
     return <ErrorPage />;
   }
+
+  //Todo: Add MovieModal to display movie details from search results
+
+  //Todo: Add "movies-tvshows" styling from center of wireframe home page
 
   return (
     <>
