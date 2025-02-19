@@ -118,7 +118,7 @@ function OmdbContainer() {
   If not, render a different header */
 
   return (
-    <section>
+    <section className="omdb-container">
       <section>
         <h1>{movie?.Title || "Search for a Movie to Begin"}</h1>
         {movie ? (
@@ -129,13 +129,13 @@ function OmdbContainer() {
               <li>{movie.Plot}</li>
               <li>{movie.Released}</li>
             </ul>
-            <button
+            {/* <button
               onClick={() => toggleFavorite(favoriteMovies[currentIndex])}
             >
               {favoriteMovies.includes(favoriteMovies[currentIndex])
                 ? "❤️"
                 : "🤍"}
-            </button>
+            </button> */}
           </div>
         ) : (
           <h3>No Results to Display</h3>
@@ -145,7 +145,7 @@ function OmdbContainer() {
         <h2>Recommended Movies</h2>
         <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
           {recommendations.map((rec) => (
-            <div key={rec.MovieID} style={{ textAlign: "center" }}>
+            <div className="recmov" key={rec.MovieID}>
               <img
                 src={rec.Poster}
                 alt={rec.Title}
