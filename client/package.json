@@ -11,11 +11,23 @@
   },
   "dependencies": {
     "axios": "^1.7.9",
+    "bootstrap": "^5.3.0",
+    "react-bootstrap": "^2.1.2",
+    "react-modal": "3.16.3",
     "express": "^4.21.2",
     "jwt-decode": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.23.1"
+    "react-icons": "^4.3.1",
+    "react-modal-video": "^2.0.0",
+    "react-router-dom": "^6.23.1",
+    "react-scripts": "5.0.1",
+    "react-sticky-header": "^0.2.0",
+    "react-text-rotator": "^1.2.0",
+    "react-tsparticles": "^2.12.2",
+    "reactstrap": "^9.1.9",
+    "tsparticles": "^2.12.0",
+    "tsparticles-engine": "^2.12.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
@@ -27,6 +39,6 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
     "typescript": "^5.2.2",
-    "vite": "^5.2.0"
+    "vite": "^5.2.0",
   }
 }
