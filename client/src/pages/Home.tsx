@@ -1,25 +1,21 @@
-import { useState, useEffect, useLayoutEffect, SetStateAction } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 // import { retrieveUsers } from "../api/userAPI";
 import type { UserData } from "../interfaces/UserData";
 import ErrorPage from "./ErrorPage";
 import auth from "../utils/auth";
-<<<<<<< HEAD
 import OMDBContainer from "../components/OMDBcontainer";
 import '../styles/Home.css'
-=======
 import { retrieveUser } from "../api/nateTheGreateAPI";
 
 
 //! Test Imports Below
   import UserList from "../components/Users";
-  import OMDBContainer from "../components/OMDBcontainer";
 
 
 // import SearchForm from "../components/SearchForm";
 
 
 
->>>>>>> a316aa4e0157c753faf570459b6adb9d1b658d5d
 const Home = () => {
   const [user, setUser] = useState<UserData | null>(null); // Store a single user
   const [error, setError] = useState(false);
