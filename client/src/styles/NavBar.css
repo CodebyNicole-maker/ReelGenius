@@ -1,20 +1,35 @@
-.deep-violet{
-    background-color: #2D2D2D;
-    opacity: 0.9;
-  
-  }
+
+.deep-violet {
+  /* opacity: 0.9; */
+}
+
 
 .nav-btn {
-    background-color: black;
-    color: #fff;
+  background-color: black;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  margin: 20px;
 }
 
-.nav-link{
-    color:#fff;
-    font-size: 1.2rem;
+.nav-btn:hover {
+  background-color: #32e600;
+  box-shadow: 0 0 20px #32e600, 0 0 60px #32e600;
+  transform: scale(1.1);
 }
 
-.logo{
-    src: url(./ReelGenius-dark.png);
-    width: 300px;
+.nav-btn:active {
+  background-color: #28c700;
+  box-shadow: 0 0 15px #28c700, 0 0 50px #28c700;
+  transform: scale(1);
+}
+
+.nav-link {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.logo {
+  src: url(./ReelGenius-dark.png);
+  width: 300px;
 }
