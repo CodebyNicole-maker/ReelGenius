@@ -33,7 +33,7 @@ function Loader ({active, children}) {
             </div>
         </LoadingOverlay>
     );
-
+}
 // const Loader = () => {
 //   const [isActive, setActive] = useState(false);
 //   const handleButtonClicked = useCallback(() => {
