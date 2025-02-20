@@ -11,6 +11,7 @@ import { LoadingOverlay } from "@achmadk/react-loading-overlay";
 import BounceLoader from "react-spinner";
 
 //Todo: Utilize styles and effects to make animated loading element
+
   
 function Loader ({active, children}) {
     const [isActive, setActive] = useState(false);

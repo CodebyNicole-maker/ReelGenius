@@ -1,6 +1,6 @@
 import Auth from '../utils/auth';
 
-const retrieveUser = async (userId: number) => {
+const retrieveUser = async (userId: number | null) => {
   try {
     const response = await fetch(`/api/users/${userId}`, {
       headers: {
