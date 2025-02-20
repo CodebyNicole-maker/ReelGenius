@@ -213,5 +213,4 @@ function OmdbContainer() {
     </section>
   );
 }
-
 export default OmdbContainer;
