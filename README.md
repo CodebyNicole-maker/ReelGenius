@@ -4,20 +4,22 @@
 
 ## Description
 
-This project is a **Movie Recommendation App** built with **React and TypeScript**, utilizing an **external movie API** (e.g., TMDB or OMDB) to fetch real-time movie data. Users can search for movies, view details, and receive recommendations based on their preferences.  
+This project is a **Movie Recommendation App** built with **React and TypeScript**, utilizing an **external movie API** (e.g., TMDB or OMDB) to fetch real-time movie data. Users can search for movies, view details, and receive recommendations based on their preferences.
 
-### 🚀 **Tech Stack**  
+### 🚀 **Tech Stack**
+
 ✅ **React (TypeScript)** – Ensures type safety and maintainability  
 ✅ **API Integration** – Fetch real-time movie data with an API key  
 ✅ **State Management** – Use React Context or Redux for efficient state handling  
-✅ **Styled Components / Tailwind** – Modern UI styling for an interactive experience  
+✅ **Styled Components / Tailwind** – Modern UI styling for an interactive experience
 
-### 🔥 **Features**  
+### 🔥 **Features**
+
 ✅ Search movies by title
 ✅ View movie details  
 ✅ Get personalized movie recommendations  
 ✅ Save favorite movies for later  
-✅ Responsive and user-friendly UI  
+✅ Responsive and user-friendly UI
 
 This project is perfect for **learning API integration, TypeScript, and frontend development** while working on a fun, interactive app! 🚀🎬
 
