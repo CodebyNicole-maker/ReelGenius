@@ -1,21 +1,44 @@
 .loader {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .loader .img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #f3f3f3;
-    animation: spin 1s linear infinite;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #f3f3f3;
+  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Media Queries  */
+@media (max-width: 768px) {
+  .loader {
+    gap: 8px;
+  }
+
+  .loader .img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loader {
+    gap: 6px;
+  }
+
+  .loader .img {
+    width: 30px;
+    height: 30px;
+  }
 }

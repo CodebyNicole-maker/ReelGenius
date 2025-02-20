@@ -1,8 +1,6 @@
-
 .deep-violet {
   /* opacity: 0.9; */
 }
-
 
 .nav-btn {
   background-color: black;
@@ -34,13 +32,11 @@
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  /* box-shadow: inset 0px -50px 35px -70px #e48a01; */
 }
 
 .logo-container:hover {
   transform: scale(1.1);
   transition: 0.3s ease-in-out;
-  /* box-shadow: inset 0px -60px 35px -40px #e48a01; */
   border-radius: 50px;
 }
 
@@ -55,4 +51,71 @@
   backdrop-filter: blur(50px);
   border-radius: 50px;
   box-shadow: inset 0px -60px 35px -40px #e48a01;
+}
+
+/* Navbar container (flex) */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: nowrap; /* Prevent buttons from wrapping */
+  gap: 20px; /* Space between buttons */
+}
+
+.navbar-container .nav-btn {
+  margin: 0; /* Remove margin from individual buttons */
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .nav-link {
+    font-size: 1.1rem;
+  }
+
+  .logo {
+    width: 250px;
+  }
+
+  .navbar-container {
+    gap: 15px; /* Adjust space between buttons */
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-btn {
+    font-size: 1rem;
+    padding: 10px 15px; /* Adjust padding */
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+
+  .logo {
+    width: 200px;
+  }
+
+  .navbar-container {
+    gap: 10px; /* Reduce space between buttons */
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-btn {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+  }
+
+  .logo {
+    width: 150px;
+  }
+
+  .navbar-container {
+    gap: 8px; /* Further reduce space between buttons */
+  }
 }
