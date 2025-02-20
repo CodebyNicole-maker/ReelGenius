@@ -9,7 +9,9 @@ const SignUp = () => {
   const [signUpData, setSignUpData] = useState<UserLogin>({
     username: '',
     email: '',
-    password: ''
+    password: '',
+    favorite_movies: [],
+    reviewIDs: []
   });
 
   // Handle changes in the input fields
@@ -71,6 +73,28 @@ const SignUp = () => {
             onChange={handleChange}
           />
         </div>
+        {/* Favorite movies input field */}
+        <div className="form-group">
+          <label>What is your favorite movie?: <span className="neon-text">you can do this later</span></label>
+          <input 
+            className="form-input"
+            type='text'
+            name='favorite_movies'
+            value={signUpData.favorite_movies?.join(', ') || ''}
+            onChange={handleChange}
+          />
+          </div>
+        {/* Review IDs input field */}
+        <div className="form-group">
+          <label>What'd you think of it? <span className="neon-text">optional</span></label>
+          <input 
+            className="form-input"
+            type='text'
+            name='reviewIDs'
+            value={signUpData.reviewIDs?.join(', ') || ''}
+            onChange={handleChange}
+          />
+          </div>  
         {/* Submit button for the sign up form */}
         <div className="form-group">
           <button className="btn btn-primary" type='submit'>Sign Up</button>

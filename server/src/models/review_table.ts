@@ -6,6 +6,7 @@ interface ReviewAttributes {
   comment: string; //todo Text content of the review
   star_review: number; //todo Star rating given in the review (e.g., 1-5)
   userId: number; //todo Foreign key reference to User model
+  movieId: number; //todo Foreign key reference to Movie model
 }
 
 //todo Define attributes required for creating a new review
@@ -18,6 +19,7 @@ export class Review extends Model<ReviewAttributes, ReviewCreationAttributes> im
   public comment!: string; 
   public star_review!: number; 
   public userId!: number; 
+  public movieId!: number;
 
   //todo Sequelize automatically manages timestamps
   public readonly createdAt!: Date; //todo Timestamp when the review was created
@@ -51,6 +53,16 @@ export function ReviewFactory(sequelize: Sequelize): typeof Review {
         onUpdate: 'CASCADE', //todo If a user ID is updated, update related reviews
         onDelete: 'CASCADE', //todo If a user is deleted, delete related reviews
       },
+      movieId: {
+        type: DataTypes.INTEGER, //todo Foreign key referencing 'movies' table
+        allowNull: false, //todo movieId is required for associating reviews with movies
+        references: {
+          model: 'movies', //todo Links to the 'movies' table
+          key: 'id', //todo References the 'id' column in 'movies'
+        },
+        onUpdate: 'CASCADE', //todo If a movie ID is updated, update related reviews
+        onDelete: 'CASCADE', //todo If a movie is deleted, delete related reviews
+      }
     },
     {
       tableName: 'review', //todo Sets the table name in the database

@@ -7,6 +7,7 @@ import type { UserData } from '../interfaces/UserData';
 class AuthService {
   getProfile() {
     const token = this.getToken();
+    console.log('Token:', token);
     const decoded = jwtDecode<UserData>(token);
     console.log('Entire decoded token:', decoded);
     return decoded;

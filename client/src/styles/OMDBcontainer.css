@@ -14,6 +14,28 @@ li {
   color: black;
 }
 
+.searchedMovie {
+  text-align: center;
+  color: black;
+  width: 50%;
+}
+
+ul {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.recmov {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 30%;
+}
+
 /* * {
   box-sizing: border-box;
   margin: 0;

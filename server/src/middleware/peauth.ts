@@ -4,6 +4,9 @@ import jwt from 'jsonwebtoken';
 // Define the interface for the JWT payload
 interface JwtPayload {
   username: string;
+  reviewID: string;
+  favorite_movies?: string[] | number[] | null;
+  reviewIDs?: string[] | number[] | null;
 }
 
 // Middleware function to authenticate JWT token

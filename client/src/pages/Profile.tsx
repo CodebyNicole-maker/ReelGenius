@@ -4,6 +4,7 @@ import FavoritesCarousel from '../components/FavoriteMovies/FavoritesCarousel';
 import auth from '../utils/auth';
 import type { UserData } from '../interfaces/UserData';
 import MovieModal from "../components/Movie-Modal/MovieModal";
+// import { Carousel } from 'react-bootstrap';
 
 const styles = {
     profileContainer: {
@@ -106,8 +107,9 @@ const Profile: React.FC = () => {
 
             <div style={styles.profileSection}>
                 <h2 style={styles.sectionHeading}>Your Favorite Movies</h2>
+                <FavoritesCarousel user={null} />
                 <div style={styles.movieGridContainer}>
-                    {user.favorite_movies.length > 0 ? (
+                    {user.favorite_movies && user.favorite_movies.length > 0 ? (
                         user.favorite_movies.map((movieId) => (            //todo movie id
                             <div key={movieId} style={{
                                 backgroundColor: '#555', 
