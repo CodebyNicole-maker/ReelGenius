@@ -7,7 +7,8 @@ interface UserAttributes {
   username: string;
   email: string;
   password: string;
-  favorite_movies:string[]
+  favorite_movies: string[];
+  reviewsId?: string[];
 }
 
 //todo Define the optional attributes for creating a new User
@@ -20,7 +21,7 @@ export class User extends Model<UserAttributes, UserCreationAttributes> implemen
   public email!: string;
   public password!: string;
   public favorite_movies!:string[];
-  // public reviewsId?: string[];
+  public reviewsId?: string[];
 
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
@@ -57,10 +58,10 @@ export function UserFactory(sequelize: Sequelize): typeof User {
         type:DataTypes.ARRAY(DataTypes.STRING),
         allowNull: true,
       },
-      // reviewsID:{
-      //   type:DataTypes.ARRAY(DataTypes.STRING),
-      //   allowNull: true,
-      // }
+      reviewsId:{
+        type:DataTypes.ARRAY(DataTypes.STRING),
+        allowNull: true,
+      }
       
     },
 
