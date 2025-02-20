@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import MovieModal from '../Movie Modal/MovieModal';
+import MovieModal from '../Movie-Modal/MovieModal';
 import type { UserData } from '../../interfaces/UserData'; 
 import '../../styles/carousel.css'; 
 
