@@ -109,6 +109,10 @@ function OmdbContainer() {
     }
   };
 
+  function toggleFavorite(arg0: any): void {
+    throw new Error("Function not implemented.");
+  }
+
   /* Fall back to default header if `Title` is undefined
   Does `Title` exist? If so, render the `MovieDetail` card 
   If not, render a different header */
