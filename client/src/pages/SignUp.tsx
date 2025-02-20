@@ -3,7 +3,7 @@ import { useState, FormEvent, ChangeEvent } from "react";
 import Auth from '../utils/auth';  // Import the Auth utility for managing authentication state
 import { signUp } from "../api/authAPI";  // Import the login function from the API
 import { UserLogin } from "../interfaces/UserLogin";  // Import the interface for UserLogin
-
+import "../styles/signup.css"
 const SignUp = () => {
   // State to manage the login form data
   const [signUpData, setSignUpData] = useState<UserLogin>({
