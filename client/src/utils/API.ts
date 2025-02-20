@@ -12,7 +12,7 @@ const getRecommendations = async (movieID: string) =>
     `https://api.themoviedb.org/3/movie/${movieID}/recommendations?api_key=${VITE_TMDB_API_KEY}`
   );
 
-const getMoviebyID = async (movieID: string) =>
+const getMoviebyID = async (movieID: number | string) =>
   axios.get(
     `https://api.themoviedb.org/3/movie/${movieID}?api_key=${VITE_TMDB_API_KEY}`
   );
