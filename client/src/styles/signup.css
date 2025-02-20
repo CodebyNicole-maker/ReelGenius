@@ -1,0 +1,18 @@
+.btn-primary {
+    background-color: black;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    margin: 20px;
+    border: none;
+  }
+  
+.btn-primary:hover {
+    background-color: #32e600;
+    box-shadow: 0 0 20px #32e600, 0 0 60px #32e600;
+    transform: scale(1.1);
+  }
+
+.sign-up-form {
+    padding: 15px;
+}

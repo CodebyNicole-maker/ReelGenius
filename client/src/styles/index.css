@@ -297,7 +297,7 @@ textarea {
  * 2. Correct the outline style in Safari.
  */
 [type="search"] {
-  -webkit-appearance: textfield;
+  appearance: textfield;
   /* 1 */
   outline-offset: -2px;
   /* 2 */
@@ -307,7 +307,7 @@ textarea {
  * Remove the inner padding in Chrome and Safari on macOS.
  */
 [type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
+  appearance: none;
 }
 
 /**
@@ -315,7 +315,7 @@ textarea {
  * 2. Change font properties to `inherit` in Safari.
  */
 ::-webkit-file-upload-button {
-  -webkit-appearance: button;
+  appearance: button;
   /* 1 */
   font: inherit;
   /* 2 */
@@ -995,7 +995,7 @@ a:hover {
   font-size: 1.2rem;
   border-radius: 0.3rem;
   border: 1px solid transparent;
-  outline: none;
+  outline: #000000;
   color: #1a1a1a;
   background-color: #aeaeae;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
@@ -1025,7 +1025,7 @@ a:hover {
   text-align: center;
 }
 
-.btn.btn-primary {
+/* .btn.btn-primary {
   background-color: #370655;
   color: #fff;
 }
@@ -1033,7 +1033,7 @@ a:hover {
 .btn.btn-primary:hover {
   background-color: #fff;
   color: #370655;
-}
+} */
 
 .btn.btn-danger {
   background-color: #e64c66;
@@ -1136,7 +1136,7 @@ form .form-group {
   margin: 0.625rem 0;
 }
 
-form .form-input,
+/* form .form-input, */
 form .form-textarea {
   display: block;
 }
@@ -1187,6 +1187,8 @@ label form [type="radio"] {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  background-color: rgb(102, 102, 102) ;
+  border-radius: 55px;
 }
 
 .container.container-fluid {

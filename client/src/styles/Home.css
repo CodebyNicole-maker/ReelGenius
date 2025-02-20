@@ -10,7 +10,7 @@
   cursor: pointer;
   box-shadow: 0 0 10px #39ff14, 0 0 40px #39ff14;
   transition: 0.3s ease-in-out;
-  margin: 50px;
+  /* margin: 50px; */
 }
 
 .searchmovie-btn:hover {
@@ -25,11 +25,27 @@
   transform: scale(1);
 }
 
-.home-section {
+/* .home-section {
   padding: 20px;
   width: 80%;
-  margin: 100px;
+  margin: 50px;
   text-align: center;
   background: rgba(151, 150, 150, 0.959);
   border-radius: 25px;
+  background-color: rgb(201, 198, 198) ;
+} */
+
+.container {
+  width: 85%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(102, 102, 102) ;
+  border-radius: 55px;
+  text-align: center;
+  margin-top: 250px;
+}
+
+.login-notice {
+  padding: 20px;
 }
