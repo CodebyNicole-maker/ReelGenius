@@ -1,12 +1,13 @@
 import { useState, useEffect, useLayoutEffect } from "react";
 // import { retrieveUsers } from "../api/userAPI";
-import type { UserData } from "../interfaces/UserData";
+
 import ErrorPage from "./ErrorPage";
 import auth from "../utils/auth";
 import OMDBContainer from "../components/OMDBcontainer";
 import "../styles/Home.css";
 import { retrieveUser } from "../api/nateTheGreateAPI";
 import MovieModal from "../components/Movie-Modal/MovieModal";
+import type { UserData } from "../interfaces/UserData";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Home.css";
@@ -14,11 +15,6 @@ import "../styles/Home.css";
 //! Test Imports Below
 import UserList from "../components/Users";
 import SearchForm from "../components/SearchForm";
-
-interface MovieModalProps {
-  show: boolean;
-  onHide: () => void;
-}
 
 const Home = () => {
   const [user, setUser] = useState<UserData | null>(null); // Store a single user
