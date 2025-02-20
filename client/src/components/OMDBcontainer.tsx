@@ -110,7 +110,6 @@ function OmdbContainer() {
     }
   };
 
-
   //Handler for Add to Favorites button
   const handleAddToFavorites = async (movieID: string) => {
     try {
@@ -131,8 +130,19 @@ function OmdbContainer() {
         <h1>{movie?.Title || "Search for a Movie to Begin"}</h1>
         {movie ? (
           <div>
-            <img src={movie.Poster} alt={movie.Title} />
-            <h2><button className="searchmovie-btn neon-text" onClick={(handleAddToFavorites(movie.MovieID))}>Add to Favorites</button></h2>
+            <img
+              className="searchedMovie"
+              src={movie.Poster}
+              alt={movie.Title}
+            />
+            <h2>
+              <button
+                className="searchmovie-btn neon-text"
+                onClick={() => handleAddToFavorites(movie.MovieID)}
+              >
+                Add to Favorites
+              </button>
+            </h2>
             <ul>
               <li>{movie.Genre}</li>
               <li>{movie.Plot}</li>

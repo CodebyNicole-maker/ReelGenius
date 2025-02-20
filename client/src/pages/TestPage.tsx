@@ -7,7 +7,7 @@
 
 //Todo: Import components to test
 //! import FavoritesCarousel from "../components/FavoriteMovies/FavoritesCarousel";
-// import Loader from "../components/LoadingPage";
+import Loader from "../components/LoadingPage";
 
 //This page will be used to test components
 
@@ -35,7 +35,7 @@ const Test = () => {
     <>
       <h1 className="pb-5">Test Page</h1>
       <h2>Loading Page</h2>
-      {/* <Loader /> */}
+      <Loader />
     </>
   );
 };

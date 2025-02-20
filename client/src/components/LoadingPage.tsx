@@ -51,12 +51,12 @@ import "../assets/wireframeAssets/loadingElementgf.gif";
 
 // };
 
-// const Loader = () => {
-//     return (
-//         <div className="loader">
-//             <img src="./loadingElementgf.gif" alt="Loading" />
-//         </div>
-//     )
-// }
+const Loader = () => {
+  return (
+    <div className="loader">
+      <img src="./loadingElementgf.gif" alt="Loading" />
+    </div>
+  );
+};
 
-// export default Loader;
+export default Loader;
