@@ -79,8 +79,8 @@ const Home = () => {
         {/* <OMDBContainer /> */}
         <MovieModal show={modalShow} onHide={() => setModalShow(false)} />
         {!loginCheck ? (
-          <div className="login-notice">
-            <h1>Login to view all your Movies!</h1>
+          <div className="login-notice neon-wrapper">
+            <h1 className="neon-text">Login to view all your Movies!</h1>
           </div>
         ) : (
           <UserList user={user} />

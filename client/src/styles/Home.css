@@ -32,4 +32,5 @@
   text-align: center;
   background: rgba(151, 150, 150, 0.959);
   border-radius: 25px;
+  background-image: url("./userProfile.png");
 }
