@@ -1,11 +1,67 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import FavoritesCarousel from '../components/FavoriteMovies/FavoritesCarousel';
-// import OMDBContainer from '../components/OMDBcontainer';
 import auth from '../utils/auth';
 import type { UserData } from '../interfaces/UserData';
+import MovieModal from "../components/Movie-Modal/MovieModal";
+
+const styles = {
+    profileContainer: {
+        maxWidth: '1200px',
+        margin: '0 auto',
+        padding: '20px',
+        backgroundColor: '#f0f0f0',
+        borderRadius: '8px',
+        boxShadow: '0 0 10px rgba(0,0,0,0.1)',
+        border: '3px solid #ff7f50',
+    },
+    profileSection: {
+        backgroundColor: '#444', 
+        padding: '15px',
+        marginBottom: '20px',
+        borderRadius: '5px'
+    },
+    sectionHeading: {
+        color: '#fff', 
+        borderBottom: '1px solid #ddd',
+        paddingBottom: '10px'
+    },
+    userInfo: {
+        fontSize: '16px',
+        color: '#fff' 
+    },
+    link: {
+        display: 'inline-block',
+        padding: '10px 15px',
+        backgroundColor: '#ff7f50', 
+        color: '#fff',
+        textDecoration: 'none',
+        borderRadius: '5px',
+        marginTop: '20px',
+        transition: 'background-color 0.3s ease', 
+    },
+    linkHover: {
+        backgroundColor: '#ff6347' 
+    },
+    searchContainer: {
+        textAlign: 'center' as const,
+        marginTop: '20px'
+    },
+    movieGridContainer: {
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', 
+        gap: '1rem', 
+    },
+    noFavoritesMessage: {
+        gridColumn: '1 / -1', 
+        textAlign: 'center',
+        padding: '2rem',
+        color: '#fff'
+    }
+};
 
 const Profile: React.FC = () => {
+    const [modalShow, setModalShow] = useState(false);
     const [user, setUser] = useState<UserData | null>(null);
     const [loading, setLoading] = useState(true);
 
@@ -14,14 +70,6 @@ const Profile: React.FC = () => {
             if (auth.loggedIn()) {
                 try {
                     const userData = auth.getProfile();
-                    console.log("Raw user data from token:", userData);
-
-                    // If you need to fetch additional user data from an API, do it here
-                    // const response = await fetch(`/api/users/${userData.id}`, {
-                    //     headers: { 'Authorization': `Bearer ${auth.getToken()}` }
-                    // });
-                    // const additionalUserData = await response.json();
-
                     setUser({
                         id: userData.id ?? null,
                         username: userData.username ?? 'Guest',
@@ -42,34 +90,67 @@ const Profile: React.FC = () => {
     }, []);
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <div style={styles.profileContainer}>Loading...</div>;
     }
 
     if (!user) {
-        return <div>Please log in to view your profile.</div>;
+        return <div style={styles.profileContainer}>Please log in to view your profile.</div>;
     }
 
     return (
-        <div className="profile-container">
-            <h1 className="heading">Welcome, {user.username}!</h1>
-
-            <div className="profile-section">
-                <h2>Your Profile Information</h2>
-                <p>Email: {user.email}</p>
-                {/* Add more user information here as needed */}
+        <div style={styles.profileContainer}>
+            <div style={styles.profileSection}>
+                <h2 style={styles.sectionHeading}>Welcome, {user.username}!</h2>
+                <p style={styles.userInfo}>Email: {user.email}</p>
             </div>
 
-            <div className="profile-section">
-                <h2>Your Favorite Movies</h2>
-                <FavoritesCarousel user={user} />
+            <div style={styles.profileSection}>
+                <h2 style={styles.sectionHeading}>Your Favorite Movies</h2>
+                <div style={styles.movieGridContainer}>
+                    {user.favorite_movies.length > 0 ? (
+                        user.favorite_movies.map((movieId) => (            //todo movie id
+                            <div key={movieId} style={{
+                                backgroundColor: '#555', 
+                                color:'#fff',
+                                display:'flex',
+                                alignItems:'center',
+                                justifyContent:'center',
+                                height:'150px' 
+                            }}>
+                                Movie ID {movieId} {}     //todo this is where put movie at
+                            </div>
+                        ))
+                    ) : (
+                        <div style={styles.noFavoritesMessage}>
+                            No favorite movies yet. Add some movies to your favorites!
+                        </div>
+                    )}
+                </div>
             </div>
 
-            {/* <div className="profile-section">
-                <h2>Movie Recommendations</h2>
-                <OMDBContainer />
-            </div> */}
+          
+            <div style={styles.searchContainer}>
+                <button 
+                    className="searchmovie-btn" 
+                    onClick={() => setModalShow(true)}
+                >
+                    <span className="neon-text">Search</span>
+                </button>
+            </div>
+            
+            <MovieModal show={modalShow} onHide={() => setModalShow(false)} />
 
-            <Link to="/" className="link">Go Back to Home</Link>
+            {/* Center Go Back to Home Link */}
+            <div style={{ textAlign: 'left', marginTop: '20px' }}>
+                <Link 
+                    to="/" 
+                    style={styles.link} 
+                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = styles.linkHover.backgroundColor}
+                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = styles.link.backgroundColor}
+                >
+                    Go Back to Home
+                </Link>
+            </div>
         </div>
     );
 };

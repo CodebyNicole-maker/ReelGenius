@@ -2,6 +2,7 @@ import { useState } from "react";
 import { searchMovie, getRecommendations, getMoviebyID } from "../utils/API";
 import SearchForm from "./SearchForm";
 import "../styles/OMDBcontainer.css";
+import favs from "./favs";
 
 console.log(getRecommendations);
 console.log(searchMovie);
@@ -109,9 +110,16 @@ function OmdbContainer() {
     }
   };
 
-  function toggleFavorite(arg0: any): void {
-    throw new Error("Function not implemented.");
-  }
+
+  //Handler for Add to Favorites button
+  const handleAddToFavorites = async (movieID: string) => {
+    try {
+      await favs.addFavoriteMovie(Number(movieID));
+      console.log("Movie added to favorites:", movieID);
+    } catch (error) {
+      console.error("Error adding movie to favorites:", error);
+    }
+  };
 
   /* Fall back to default header if `Title` is undefined
   Does `Title` exist? If so, render the `MovieDetail` card 
@@ -124,19 +132,12 @@ function OmdbContainer() {
         {movie ? (
           <div>
             <img src={movie.Poster} alt={movie.Title} />
-            <h2><button className="searchmovie-btn neon-text">Add to Favorites</button></h2>
+            <h2><button className="searchmovie-btn neon-text" onClick={(handleAddToFavorites(movie.MovieID))}>Add to Favorites</button></h2>
             <ul>
               <li>{movie.Genre}</li>
               <li>{movie.Plot}</li>
               <li>{movie.Released}</li>
             </ul>
-            {/* <button
-              onClick={() => toggleFavorite(favoriteMovies[currentIndex])}
-            >
-              {favoriteMovies.includes(favoriteMovies[currentIndex])
-                ? "❤️"
-                : "🤍"}
-            </button> */}
           </div>
         ) : (
           <h3>No Results to Display</h3>
