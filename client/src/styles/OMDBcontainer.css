@@ -31,9 +31,8 @@ li {
 
 .neon-text {
   font-family: "Text Me One", sans-serif;
-  font-size: 10rem;
   text-align: center;
-  color: #ffd8d8;
+  color: #cd3c3c84;
   padding: 0 3.5rem 0 3.5rem;
   -webkit-animation: text-glow 5s linear forwards;
           animation: text-glow 5s linear forwards;
