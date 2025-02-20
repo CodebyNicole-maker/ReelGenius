@@ -17,7 +17,12 @@ const getMoviebyID = async (movieID: string) =>
     `https://api.themoviedb.org/3/movie/${movieID}?api_key=${VITE_TMDB_API_KEY}`
   );
 
-export { searchMovie, getRecommendations, getMoviebyID };
+const getMovieReviews = async (movieID: string) =>
+  axios.get(
+    `https://api.themoviedb.org/3/movie/${movieID}/reviews?api_key=${VITE_TMDB_API_KEY}`
+  );
+
+export { searchMovie, getRecommendations, getMoviebyID, getMovieReviews };
 
 //! This is the original code that was in the API.ts file
 // const VITE_OMDB_API_KEY = import.meta.env.VITE_OMDB_API_KEY;
