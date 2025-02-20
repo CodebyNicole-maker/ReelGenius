@@ -27,7 +27,7 @@ const Navbar = () => {
   return (
     <div className="display-flex justify-space-between align-center py-2 px-5 deep-violet">
       <Link to='/'>
-      <div className="logo">
+      <div className="logo-container">
         <img src="src/components/ReelGenius-dark.png" alt="ReelGenius Logo" className="logo"/>
         </div>
       </Link>

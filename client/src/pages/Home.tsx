@@ -1,24 +1,22 @@
 import { useState, useEffect, useLayoutEffect } from "react";
 // import { retrieveUsers } from "../api/userAPI";
-import type { UserData } from "../interfaces/UserData";
+
 import ErrorPage from "./ErrorPage";
 import auth from "../utils/auth";
-import OMDBContainer from "../components/OMDBcontainer";
+// import OMDBContainer from "../components/OMDBcontainer";
 import "../styles/Home.css";
 import { retrieveUser } from "../api/nateTheGreateAPI";
 import MovieModal from "../components/Movie-Modal/MovieModal";
+
+import type { UserData } from "../interfaces/UserData";
+
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Home.css";
 
 //! Test Imports Below
 import UserList from "../components/Users";
-import SearchForm from "../components/SearchForm";
-
-interface MovieModalProps {
-  show: boolean;
-  onHide: () => void;
-}
+// import SearchForm from "../components/SearchForm";
 
 const Home = () => {
   const [user, setUser] = useState<UserData | null>(null); // Store a single user
@@ -73,17 +71,17 @@ const Home = () => {
   return (
     <>
       <section className="home-section">
-        <button className="searchmovie-btn" onClick={() => setModalShow(true)}>
-          SEARCH MOVIES
-        </button>
+        <button className="searchmovie-btn" onClick={() => setModalShow(true)} ><span className="neon-text">Search</span></ button>
         {/* <OMDBContainer /> */}
         <MovieModal show={modalShow} onHide={() => setModalShow(false)} />
         {!loginCheck ? (
           <div className="login-notice">
-            <h1>Login to view all your Movies!</h1>
+            <h1 className="">Login to view all your Movies!</h1>
           </div>
         ) : (
+          <>
           <UserList user={user} />
+          <div></div></>
         )}
       </section>
     </>

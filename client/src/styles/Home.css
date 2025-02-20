@@ -1,5 +1,5 @@
 .searchmovie-btn {
-  background-color: #39ff14; /* Neon Green */
+  background-color: #794500; /* Neon Green */
   color: black;
   font-size: 1.5rem;
   font-weight: bold;
@@ -8,19 +8,19 @@
   border-radius: 10px;
   text-transform: uppercase;
   cursor: pointer;
-  box-shadow: 0 0 10px #39ff14, 0 0 40px #39ff14;
+  box-shadow: 0 0 10px #ef8f09, 0 0 40px #b5b203;
   transition: 0.3s ease-in-out;
   margin: 15px;
 }
 
 .searchmovie-btn:hover {
-  background-color: #32e600;
-  box-shadow: 0 0 20px #32e600, 0 0 60px #32e600;
+  background-color: #e19d3f;
+  box-shadow: 0 0 20px #de8a0d, 0 0 60px #e6db00;
   transform: scale(1.1);
 }
 
 .searchmovie-btn:active {
-  background-color: #28c700;
+  background-color: #29940f;
   box-shadow: 0 0 15px #28c700, 0 0 50px #28c700;
   transform: scale(1);
 }
@@ -32,11 +32,12 @@
   text-align: center;
   background: rgba(151, 150, 150, 0.959);
   border-radius: 25px;
+<<<<<<< Updated upstream
   background-color: rgb(201, 198, 198) ;
 } */
 
 .home-section{
-  width: 100%;
+  width: 84%;
   height: 200px;
   max-width: 1200px;
   margin-left: auto;
@@ -46,8 +47,7 @@
   text-align: center;
   margin-top: 250px;
   border: 10px solid black;
-  box-shadow: 0px 0px 30px 10px #28c700;
-
+  box-shadow: 0px 0px 30px 10px #c78800;
 }
 
 
@@ -55,3 +55,6 @@
 .login-notice {
   padding: 20px;
 }
+=======
+} */
+>>>>>>> Stashed changes

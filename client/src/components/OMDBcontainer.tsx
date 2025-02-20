@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { searchMovie, getRecommendations, getMoviebyID } from "../utils/API";
 import SearchForm from "./SearchForm";
 import "../styles/OMDBcontainer.css";
@@ -30,9 +30,56 @@ function OmdbContainer() {
   }
 
   const [movie, setMovie] = useState<Movie | null>(null);
-  // State to store movie detail
+
+  const [favoriteMovies, setFavoriteMovies] = useState<string[]>();
+  // user?.favorite_movies || []
+  // const [currentIndex, setCurrentIndex] = useState<number>(0);
+
   const [recommendations, setRecommendations] = useState<Recommendation[]>([]);
-  // State to store recommendations
+
+  // useEffect(() => {
+  //   if (user) {
+  //     setFavoriteMovies(user.favorite_movies || []);
+  //   }
+  // }, [user]);
+
+  useEffect(() => {
+    const savedFavorites = localStorage.getItem("favoriteMovies");
+    if (savedFavorites) {
+      setFavoriteMovies(JSON.parse(savedFavorites));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("favoriteMovies", JSON.stringify(favoriteMovies));
+  }, [favoriteMovies]);
+
+  // const openUrl = (url: string, label: string) => {
+  //     window.open(url, label='_blank');
+  // }
+
+  // const toggleFavorite = async (movieID: string) => {
+  //   if (!movieID) return; // Avoid undefined MovieID issues
+
+  //   // const updatedMovies = favoriteMovies.includes(movieID)
+  //   //   ? favoriteMovies.filter((m) => m !== movieID) // Remove if already favorited
+  //   //   : [...favoriteMovies, movieID]; // Add if not favorited
+
+  //   // setFavoriteMovies(updatedMovies);
+
+  //   try {
+  //     await fetch("/api/updateFavorites", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify({
+  //         // userId: user?.id,
+  //         // favorite_movies: updatedMovies,
+  //       }),
+  //     });
+  //   } catch (err) {
+  //     console.error("Failed to update favorite movies:", err);
+  //   }
+  // };
 
   const handleFormSubmit = async (query: string) => {
     try {
@@ -109,9 +156,9 @@ function OmdbContainer() {
     }
   };
 
-  function toggleFavorite(arg0: any): void {
-    throw new Error("Function not implemented.");
-  }
+  // function toggleFavorite(arg0: any): void {
+  //   throw new Error("Function not implemented.");
+  // }
 
   /* Fall back to default header if `Title` is undefined
   Does `Title` exist? If so, render the `MovieDetail` card 
@@ -129,12 +176,8 @@ function OmdbContainer() {
               <li>{movie.Plot}</li>
               <li>{movie.Released}</li>
             </ul>
-            {/* <button
-              onClick={() => toggleFavorite(favoriteMovies[currentIndex])}
-            >
-              {favoriteMovies.includes(favoriteMovies[currentIndex])
-                ? "❤️"
-                : "🤍"}
+            {/* <button onClick={() => toggleFavorite(movie?.MovieID || "")}>
+              {favoriteMovies.includes(movie?.MovieID || "") ? "❤️" : "🤍"}
             </button> */}
           </div>
         ) : (
@@ -152,6 +195,9 @@ function OmdbContainer() {
                 style={{ width: "100px" }}
               />
               <p>{rec.Title}</p>
+              {/* <button onClick={() => toggleFavorite(rec.MovieID)}>
+                {favoriteMovies.includes(rec.MovieID) ? "❤️" : "🤍"}
+              </button> */}
             </div>
           ))}
         </div>
@@ -169,53 +215,3 @@ function OmdbContainer() {
 }
 
 export default OmdbContainer;
-
-//! Original code
-// const OmdbContainer = () => {
-//   // Set state for the search result and the search query
-//   const [result, setResult] = useState({});
-//   const [search, setSearch] = useState("");
-
-//   // When the search form is submitted, use the API.search method to search for the movie(s)
-//   const searchMovie = (query) =>
-//     API.search(query)
-//       .then((res) => {
-//         setResult(res.data);
-//         setSearch("");
-//       })
-//       .catch((err) => console.log(err));
-
-//   // When the component loads, use the API.search method to render a default search result
-//   // The empty optional array [] will cause the hook to only run one time after the component loads
-
-//   // Handler for input changes to the search form
-//   const handleInputChange = (e) => setSearch(e.target.value);
-
-//   // Handler for what happens when the search form is submitted
-//   const handleFormSubmit = (e) => {
-//     e.preventDefault();
-//     searchMovie(search);
-//   };
-
-//   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-//     setSearch(event.target.value);
-//   };
-// console.log(search)
-// const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-//   event.preventDefault();
-//   //props.searchMovie(search);
-
-//   const result = await searchMovie(search);
-//   console.log("Fetched Data:", result.data);
-
-// useEffect(() => {
-//   searchMovie("Harry Potter");
-// }, []);
-
-// if (result.data.Response === "True") {
-//   const movieData: Movie = {
-//     Title: result.data.results.title,
-//     Poster: result.data.results.poster_path,
-//     Genre: result.data.results.genre_ids,
-//     MovieID: result.data.results.id,
-//   };
