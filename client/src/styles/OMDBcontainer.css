@@ -1,11 +1,27 @@
-@import url('https://fonts.googleapis.com/css?family=Text+Me+One');
+@import url("https://fonts.googleapis.com/css?family=Text+Me+One");
 
 .omdb-container {
   text-align: center;
 }
 
+.searchedMovie {
+  width: 50%;
+}
+
+ul {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 500;
+}
+
 li {
   color: black;
+}
+
+.recmov {
+  border-radius: 25px;
+  border: 2px solid black;
+  padding: 20px;
 }
 
 .recmov p,
@@ -35,14 +51,14 @@ li {
   color: #ffe6e684;
   padding: 0 3.5rem 0 3.5rem;
   -webkit-animation: text-glow 5s linear forwards;
-          animation: text-glow 5s linear forwards;
+  animation: text-glow 5s linear forwards;
 }
 
 .neon-wrapper {
   border: solid 2px #ffd8d8;
   border-radius: 1.5rem;
   -webkit-animation: border-glow 5s linear forwards;
-          animation: border-glow 5s linear forwards;
+  animation: border-glow 5s linear forwards;
 }
 
 @-webkit-keyframes text-glow {
@@ -50,28 +66,63 @@ li {
     text-shadow: none;
   }
   15% {
-    text-shadow: 0.1vw 0vw 0.25vw #f25757, 0.2vw 0vw 0.25vw #f25757, 0.4vw 0vw 0.25vw #f25757, 0.1vw 0vw 0vw #f25757, 0.2vw 0vw 0vw #f25757, 0.4vw 0vw 0vw #f25757, 0.1vw 0vw 0.1vw #f25757, 0.2vw 0vw 0.1vw #f25757, 0.4vw 0vw 0.1vw #f25757, 0.1vw 0vw 2vw #f25757, 0.2vw 0vw 2vw #f25757, 0.4vw 0vw 2vw #f25757, 0.1vw 0vw 1vw #e50b0b, 0.2vw 0vw 1vw #e50b0b, 0.4vw 0vw 5vw #e50b0b, 0.1vw 0vw 5vw #e50b0b, 0.2vw 0vw 20vw #e50b0b, 0.4vw 0vw 10vw #e50b0b, 0.1vw 0vw 10vw #e50b0b, 0.2vw 0vw 30vw #e50b0b, 0.4vw 0vw 10vw #e50b0b;
+    text-shadow: 0.1vw 0vw 0.25vw #f25757, 0.2vw 0vw 0.25vw #f25757,
+      0.4vw 0vw 0.25vw #f25757, 0.1vw 0vw 0vw #f25757, 0.2vw 0vw 0vw #f25757,
+      0.4vw 0vw 0vw #f25757, 0.1vw 0vw 0.1vw #f25757, 0.2vw 0vw 0.1vw #f25757,
+      0.4vw 0vw 0.1vw #f25757, 0.1vw 0vw 2vw #f25757, 0.2vw 0vw 2vw #f25757,
+      0.4vw 0vw 2vw #f25757, 0.1vw 0vw 1vw #e50b0b, 0.2vw 0vw 1vw #e50b0b,
+      0.4vw 0vw 5vw #e50b0b, 0.1vw 0vw 5vw #e50b0b, 0.2vw 0vw 20vw #e50b0b,
+      0.4vw 0vw 10vw #e50b0b, 0.1vw 0vw 10vw #e50b0b, 0.2vw 0vw 30vw #e50b0b,
+      0.4vw 0vw 10vw #e50b0b;
   }
   17% {
     text-shadow: none;
   }
   19% {
-    text-shadow: 0.1vw 0vw 0.25vw #f25757, 0.2vw 0vw 0.25vw #f25757, 0.4vw 0vw 0.25vw #f25757, 0.1vw 0vw 0vw #f25757, 0.2vw 0vw 0vw #f25757, 0.4vw 0vw 0vw #f25757, 0.1vw 0vw 0.1vw #f25757, 0.2vw 0vw 0.1vw #f25757, 0.4vw 0vw 0.1vw #f25757, 0.1vw 0vw 2vw #f25757, 0.2vw 0vw 2vw #f25757, 0.4vw 0vw 2vw #f25757, 0.1vw 0vw 1vw #e50b0b, 0.2vw 0vw 1vw #e50b0b, 0.4vw 0vw 5vw #e50b0b, 0.1vw 0vw 5vw #e50b0b, 0.2vw 0vw 20vw #e50b0b, 0.4vw 0vw 10vw #e50b0b, 0.1vw 0vw 10vw #e50b0b, 0.2vw 0vw 30vw #e50b0b, 0.4vw 0vw 10vw #e50b0b;
+    text-shadow: 0.1vw 0vw 0.25vw #f25757, 0.2vw 0vw 0.25vw #f25757,
+      0.4vw 0vw 0.25vw #f25757, 0.1vw 0vw 0vw #f25757, 0.2vw 0vw 0vw #f25757,
+      0.4vw 0vw 0vw #f25757, 0.1vw 0vw 0.1vw #f25757, 0.2vw 0vw 0.1vw #f25757,
+      0.4vw 0vw 0.1vw #f25757, 0.1vw 0vw 2vw #f25757, 0.2vw 0vw 2vw #f25757,
+      0.4vw 0vw 2vw #f25757, 0.1vw 0vw 1vw #e50b0b, 0.2vw 0vw 1vw #e50b0b,
+      0.4vw 0vw 5vw #e50b0b, 0.1vw 0vw 5vw #e50b0b, 0.2vw 0vw 20vw #e50b0b,
+      0.4vw 0vw 10vw #e50b0b, 0.1vw 0vw 10vw #e50b0b, 0.2vw 0vw 30vw #e50b0b,
+      0.4vw 0vw 10vw #e50b0b;
   }
   50% {
     text-shadow: none;
   }
   55% {
-    text-shadow: 0.1vw 0vw 0.25vw #f25757, 0.2vw 0vw 0.25vw #f25757, 0.4vw 0vw 0.25vw #f25757, 0.1vw 0vw 0vw #f25757, 0.2vw 0vw 0vw #f25757, 0.4vw 0vw 0vw #f25757, 0.1vw 0vw 0.1vw #f25757, 0.2vw 0vw 0.1vw #f25757, 0.4vw 0vw 0.1vw #f25757, 0.1vw 0vw 2vw #f25757, 0.2vw 0vw 2vw #f25757, 0.4vw 0vw 2vw #f25757, 0.1vw 0vw 1vw #e50b0b, 0.2vw 0vw 1vw #e50b0b, 0.4vw 0vw 5vw #e50b0b, 0.1vw 0vw 5vw #e50b0b, 0.2vw 0vw 20vw #e50b0b, 0.4vw 0vw 10vw #e50b0b, 0.1vw 0vw 10vw #e50b0b, 0.2vw 0vw 30vw #e50b0b, 0.4vw 0vw 10vw #e50b0b;
+    text-shadow: 0.1vw 0vw 0.25vw #f25757, 0.2vw 0vw 0.25vw #f25757,
+      0.4vw 0vw 0.25vw #f25757, 0.1vw 0vw 0vw #f25757, 0.2vw 0vw 0vw #f25757,
+      0.4vw 0vw 0vw #f25757, 0.1vw 0vw 0.1vw #f25757, 0.2vw 0vw 0.1vw #f25757,
+      0.4vw 0vw 0.1vw #f25757, 0.1vw 0vw 2vw #f25757, 0.2vw 0vw 2vw #f25757,
+      0.4vw 0vw 2vw #f25757, 0.1vw 0vw 1vw #e50b0b, 0.2vw 0vw 1vw #e50b0b,
+      0.4vw 0vw 5vw #e50b0b, 0.1vw 0vw 5vw #e50b0b, 0.2vw 0vw 20vw #e50b0b,
+      0.4vw 0vw 10vw #e50b0b, 0.1vw 0vw 10vw #e50b0b, 0.2vw 0vw 30vw #e50b0b,
+      0.4vw 0vw 10vw #e50b0b;
   }
   57% {
     text-shadow: none;
   }
   65% {
-    text-shadow: 0.1vw 0vw 0.25vw #8a8a8a, 0.2vw 0vw 0.25vw #656565, 0.4vw 0vw 0.25vw #fc4848, 0.1vw 0vw 0vw #f25757, 0.2vw 0vw 0vw #f25757, 0.4vw 0vw 0vw #f25757, 0.1vw 0vw 0.1vw #f25757, 0.2vw 0vw 0.1vw #f25757, 0.4vw 0vw 0.1vw #f25757, 0.1vw 0vw 2vw #f25757, 0.2vw 0vw 2vw #f25757, 0.4vw 0vw 2vw #f25757, 0.1vw 0vw 1vw #e50b0b, 0.2vw 0vw 1vw #e50b0b, 0.4vw 0vw 5vw #e50b0b, 0.1vw 0vw 5vw #e50b0b, 0.2vw 0vw 20vw #e50b0b, 0.4vw 0vw 10vw #e50b0b, 0.1vw 0vw 10vw #e50b0b, 0.2vw 0vw 30vw #e50b0b, 0.4vw 0vw 10vw #e50b0b;
+    text-shadow: 0.1vw 0vw 0.25vw #8a8a8a, 0.2vw 0vw 0.25vw #656565,
+      0.4vw 0vw 0.25vw #fc4848, 0.1vw 0vw 0vw #f25757, 0.2vw 0vw 0vw #f25757,
+      0.4vw 0vw 0vw #f25757, 0.1vw 0vw 0.1vw #f25757, 0.2vw 0vw 0.1vw #f25757,
+      0.4vw 0vw 0.1vw #f25757, 0.1vw 0vw 2vw #f25757, 0.2vw 0vw 2vw #f25757,
+      0.4vw 0vw 2vw #f25757, 0.1vw 0vw 1vw #e50b0b, 0.2vw 0vw 1vw #e50b0b,
+      0.4vw 0vw 5vw #e50b0b, 0.1vw 0vw 5vw #e50b0b, 0.2vw 0vw 20vw #e50b0b,
+      0.4vw 0vw 10vw #e50b0b, 0.1vw 0vw 10vw #e50b0b, 0.2vw 0vw 30vw #e50b0b,
+      0.4vw 0vw 10vw #e50b0b;
   }
   100% {
-    text-shadow: 0.1vw 0vw 0.25vw #e54848, 0.2vw 0vw 0.25vw #c42b2b, 0.4vw 0vw 0.25vw #d22828, 0.1vw 0vw 0vw #f25757, 0.2vw 0vw 0vw #f25757, 0.4vw 0vw 0vw #f25757, 0.1vw 0vw 0.1vw #f25757, 0.2vw 0vw 0.1vw #f25757, 0.4vw 0vw 0.1vw #f25757, 0.1vw 0vw 2vw #f25757, 0.2vw 0vw 2vw #f25757, 0.4vw 0vw 2vw #f25757, 0.1vw 0vw 1vw #e50b0b, 0.2vw 0vw 1vw #e50b0b, 0.4vw 0vw 5vw #e50b0b, 0.1vw 0vw 5vw #e50b0b, 0.2vw 0vw 20vw #e50b0b, 0.4vw 0vw 10vw #e50b0b, 0.1vw 0vw 10vw #e50b0b, 0.2vw 0vw 30vw #e50b0b, 0.4vw 0vw 10vw #e50b0b;
+    text-shadow: 0.1vw 0vw 0.25vw #e54848, 0.2vw 0vw 0.25vw #c42b2b,
+      0.4vw 0vw 0.25vw #d22828, 0.1vw 0vw 0vw #f25757, 0.2vw 0vw 0vw #f25757,
+      0.4vw 0vw 0vw #f25757, 0.1vw 0vw 0.1vw #f25757, 0.2vw 0vw 0.1vw #f25757,
+      0.4vw 0vw 0.1vw #f25757, 0.1vw 0vw 2vw #f25757, 0.2vw 0vw 2vw #f25757,
+      0.4vw 0vw 2vw #f25757, 0.1vw 0vw 1vw #e50b0b, 0.2vw 0vw 1vw #e50b0b,
+      0.4vw 0vw 5vw #e50b0b, 0.1vw 0vw 5vw #e50b0b, 0.2vw 0vw 20vw #e50b0b,
+      0.4vw 0vw 10vw #e50b0b, 0.1vw 0vw 10vw #e50b0b, 0.2vw 0vw 30vw #e50b0b,
+      0.4vw 0vw 10vw #e50b0b;
   }
 }
 
@@ -80,28 +131,63 @@ li {
     text-shadow: none;
   }
   15% {
-    text-shadow: 0.1vw 0vw 0.25vw #e54848, 0.2vw 0vw 0.25vw #e54848, 0.4vw 0vw 0.25vw #e54848, 0.1vw 0vw 0vw #f25757, 0.2vw 0vw 0vw #f25757, 0.4vw 0vw 0vw #f25757, 0.1vw 0vw 0.1vw #f25757, 0.2vw 0vw 0.1vw #f25757, 0.4vw 0vw 0.1vw #f25757, 0.1vw 0vw 2vw #f25757, 0.2vw 0vw 2vw #f25757, 0.4vw 0vw 2vw #f25757, 0.1vw 0vw 1vw #e50b0b, 0.2vw 0vw 1vw #e50b0b, 0.4vw 0vw 5vw #e50b0b, 0.1vw 0vw 5vw #e50b0b, 0.2vw 0vw 20vw #e50b0b, 0.4vw 0vw 10vw #e50b0b, 0.1vw 0vw 10vw #e50b0b, 0.2vw 0vw 30vw #e50b0b, 0.4vw 0vw 10vw #e50b0b;
+    text-shadow: 0.1vw 0vw 0.25vw #e54848, 0.2vw 0vw 0.25vw #e54848,
+      0.4vw 0vw 0.25vw #e54848, 0.1vw 0vw 0vw #f25757, 0.2vw 0vw 0vw #f25757,
+      0.4vw 0vw 0vw #f25757, 0.1vw 0vw 0.1vw #f25757, 0.2vw 0vw 0.1vw #f25757,
+      0.4vw 0vw 0.1vw #f25757, 0.1vw 0vw 2vw #f25757, 0.2vw 0vw 2vw #f25757,
+      0.4vw 0vw 2vw #f25757, 0.1vw 0vw 1vw #e50b0b, 0.2vw 0vw 1vw #e50b0b,
+      0.4vw 0vw 5vw #e50b0b, 0.1vw 0vw 5vw #e50b0b, 0.2vw 0vw 20vw #e50b0b,
+      0.4vw 0vw 10vw #e50b0b, 0.1vw 0vw 10vw #e50b0b, 0.2vw 0vw 30vw #e50b0b,
+      0.4vw 0vw 10vw #e50b0b;
   }
   17% {
     text-shadow: none;
   }
   19% {
-    text-shadow: 0.1vw 0vw 0.25vw #e54848, 0.2vw 0vw 0.25vw #e54848, 0.4vw 0vw 0.25vw #e54848, 0.1vw 0vw 0vw #f25757, 0.2vw 0vw 0vw #f25757, 0.4vw 0vw 0vw #f25757, 0.1vw 0vw 0.1vw #f25757, 0.2vw 0vw 0.1vw #f25757, 0.4vw 0vw 0.1vw #f25757, 0.1vw 0vw 2vw #f25757, 0.2vw 0vw 2vw #f25757, 0.4vw 0vw 2vw #f25757, 0.1vw 0vw 1vw #e50b0b, 0.2vw 0vw 1vw #e50b0b, 0.4vw 0vw 5vw #e50b0b, 0.1vw 0vw 5vw #e50b0b, 0.2vw 0vw 20vw #e50b0b, 0.4vw 0vw 10vw #e50b0b, 0.1vw 0vw 10vw #e50b0b, 0.2vw 0vw 30vw #e50b0b, 0.4vw 0vw 10vw #e50b0b;
+    text-shadow: 0.1vw 0vw 0.25vw #e54848, 0.2vw 0vw 0.25vw #e54848,
+      0.4vw 0vw 0.25vw #e54848, 0.1vw 0vw 0vw #f25757, 0.2vw 0vw 0vw #f25757,
+      0.4vw 0vw 0vw #f25757, 0.1vw 0vw 0.1vw #f25757, 0.2vw 0vw 0.1vw #f25757,
+      0.4vw 0vw 0.1vw #f25757, 0.1vw 0vw 2vw #f25757, 0.2vw 0vw 2vw #f25757,
+      0.4vw 0vw 2vw #f25757, 0.1vw 0vw 1vw #e50b0b, 0.2vw 0vw 1vw #e50b0b,
+      0.4vw 0vw 5vw #e50b0b, 0.1vw 0vw 5vw #e50b0b, 0.2vw 0vw 20vw #e50b0b,
+      0.4vw 0vw 10vw #e50b0b, 0.1vw 0vw 10vw #e50b0b, 0.2vw 0vw 30vw #e50b0b,
+      0.4vw 0vw 10vw #e50b0b;
   }
   50% {
     text-shadow: none;
   }
   55% {
-    text-shadow: 0.1vw 0vw 0.25vw #e54848, 0.2vw 0vw 0.25vw #e54848, 0.4vw 0vw 0.25vw #e54848, 0.1vw 0vw 0vw #f25757, 0.2vw 0vw 0vw #f25757, 0.4vw 0vw 0vw #f25757, 0.1vw 0vw 0.1vw #f25757, 0.2vw 0vw 0.1vw #f25757, 0.4vw 0vw 0.1vw #f25757, 0.1vw 0vw 2vw #f25757, 0.2vw 0vw 2vw #f25757, 0.4vw 0vw 2vw #f25757, 0.1vw 0vw 1vw #e50b0b, 0.2vw 0vw 1vw #e50b0b, 0.4vw 0vw 5vw #e50b0b, 0.1vw 0vw 5vw #e50b0b, 0.2vw 0vw 20vw #e50b0b, 0.4vw 0vw 10vw #e50b0b, 0.1vw 0vw 10vw #e50b0b, 0.2vw 0vw 30vw #e50b0b, 0.4vw 0vw 10vw #e50b0b;
+    text-shadow: 0.1vw 0vw 0.25vw #e54848, 0.2vw 0vw 0.25vw #e54848,
+      0.4vw 0vw 0.25vw #e54848, 0.1vw 0vw 0vw #f25757, 0.2vw 0vw 0vw #f25757,
+      0.4vw 0vw 0vw #f25757, 0.1vw 0vw 0.1vw #f25757, 0.2vw 0vw 0.1vw #f25757,
+      0.4vw 0vw 0.1vw #f25757, 0.1vw 0vw 2vw #f25757, 0.2vw 0vw 2vw #f25757,
+      0.4vw 0vw 2vw #f25757, 0.1vw 0vw 1vw #e50b0b, 0.2vw 0vw 1vw #e50b0b,
+      0.4vw 0vw 5vw #e50b0b, 0.1vw 0vw 5vw #e50b0b, 0.2vw 0vw 20vw #e50b0b,
+      0.4vw 0vw 10vw #e50b0b, 0.1vw 0vw 10vw #e50b0b, 0.2vw 0vw 30vw #e50b0b,
+      0.4vw 0vw 10vw #e50b0b;
   }
   57% {
     text-shadow: none;
   }
   65% {
-    text-shadow: 0.1vw 0vw 0.25vw #e54848, 0.2vw 0vw 0.25vw #e54848, 0.4vw 0vw 0.25vw #e54848, 0.1vw 0vw 0vw #f25757, 0.2vw 0vw 0vw #f25757, 0.4vw 0vw 0vw #f25757, 0.1vw 0vw 0.1vw #f25757, 0.2vw 0vw 0.1vw #f25757, 0.4vw 0vw 0.1vw #f25757, 0.1vw 0vw 2vw #f25757, 0.2vw 0vw 2vw #f25757, 0.4vw 0vw 2vw #f25757, 0.1vw 0vw 1vw #e50b0b, 0.2vw 0vw 1vw #e50b0b, 0.4vw 0vw 5vw #e50b0b, 0.1vw 0vw 5vw #e50b0b, 0.2vw 0vw 20vw #e50b0b, 0.4vw 0vw 10vw #e50b0b, 0.1vw 0vw 10vw #e50b0b, 0.2vw 0vw 30vw #e50b0b, 0.4vw 0vw 10vw #e50b0b;
+    text-shadow: 0.1vw 0vw 0.25vw #e54848, 0.2vw 0vw 0.25vw #e54848,
+      0.4vw 0vw 0.25vw #e54848, 0.1vw 0vw 0vw #f25757, 0.2vw 0vw 0vw #f25757,
+      0.4vw 0vw 0vw #f25757, 0.1vw 0vw 0.1vw #f25757, 0.2vw 0vw 0.1vw #f25757,
+      0.4vw 0vw 0.1vw #f25757, 0.1vw 0vw 2vw #f25757, 0.2vw 0vw 2vw #f25757,
+      0.4vw 0vw 2vw #f25757, 0.1vw 0vw 1vw #e50b0b, 0.2vw 0vw 1vw #e50b0b,
+      0.4vw 0vw 5vw #e50b0b, 0.1vw 0vw 5vw #e50b0b, 0.2vw 0vw 20vw #e50b0b,
+      0.4vw 0vw 10vw #e50b0b, 0.1vw 0vw 10vw #e50b0b, 0.2vw 0vw 30vw #e50b0b,
+      0.4vw 0vw 10vw #e50b0b;
   }
   100% {
-    text-shadow: 0.1vw 0vw 0.25vw #e54848, 0.2vw 0vw 0.25vw #e54848, 0.4vw 0vw 0.25vw #e54848, 0.1vw 0vw 0vw #f25757, 0.2vw 0vw 0vw #f25757, 0.4vw 0vw 0vw #f25757, 0.1vw 0vw 0.1vw #f25757, 0.2vw 0vw 0.1vw #f25757, 0.4vw 0vw 0.1vw #f25757, 0.1vw 0vw 2vw #f25757, 0.2vw 0vw 2vw #f25757, 0.4vw 0vw 2vw #f25757, 0.1vw 0vw 1vw #e50b0b, 0.2vw 0vw 1vw #e50b0b, 0.4vw 0vw 5vw #e50b0b, 0.1vw 0vw 5vw #e50b0b, 0.2vw 0vw 20vw #e50b0b, 0.4vw 0vw 10vw #e50b0b, 0.1vw 0vw 10vw #e50b0b, 0.2vw 0vw 30vw #e50b0b, 0.4vw 0vw 10vw #e50b0b;
+    text-shadow: 0.1vw 0vw 0.25vw #e54848, 0.2vw 0vw 0.25vw #e54848,
+      0.4vw 0vw 0.25vw #e54848, 0.1vw 0vw 0vw #f25757, 0.2vw 0vw 0vw #f25757,
+      0.4vw 0vw 0vw #f25757, 0.1vw 0vw 0.1vw #f25757, 0.2vw 0vw 0.1vw #f25757,
+      0.4vw 0vw 0.1vw #f25757, 0.1vw 0vw 2vw #f25757, 0.2vw 0vw 2vw #f25757,
+      0.4vw 0vw 2vw #f25757, 0.1vw 0vw 1vw #e50b0b, 0.2vw 0vw 1vw #e50b0b,
+      0.4vw 0vw 5vw #e50b0b, 0.1vw 0vw 5vw #e50b0b, 0.2vw 0vw 20vw #e50b0b,
+      0.4vw 0vw 10vw #e50b0b, 0.1vw 0vw 10vw #e50b0b, 0.2vw 0vw 30vw #e50b0b,
+      0.4vw 0vw 10vw #e50b0b;
   }
 }
 @-webkit-keyframes border-glow {
@@ -112,22 +198,30 @@ li {
     box-shadow: none;
   }
   35% {
-    box-shadow: 0 0 0.1vw 0.4vw #fff7f7, 0 0 0.4vw 0.6vw #e97272, 0 0 4vw 0.4vw #e50b0b, inset 0 0 1.5vw 0.4vw #e50b0b, inset 0 0 0.4vw 0.2vw #e97272, inset 0 0 0.5vw 0.2vw #fff7f7;
+    box-shadow: 0 0 0.1vw 0.4vw #fff7f7, 0 0 0.4vw 0.6vw #e97272,
+      0 0 4vw 0.4vw #e50b0b, inset 0 0 1.5vw 0.4vw #e50b0b,
+      inset 0 0 0.4vw 0.2vw #e97272, inset 0 0 0.5vw 0.2vw #fff7f7;
   }
   37% {
     box-shadow: none;
   }
   45% {
-    box-shadow: 0 0 0.1vw 0.4vw #fff7f7, 0 0 0.4vw 0.6vw #e97272, 0 0 4vw 0.4vw #e50b0b, inset 0 0 1.5vw 0.4vw #e50b0b, inset 0 0 0.4vw 0.2vw #e97272, inset 0 0 0.5vw 0.2vw #fff7f7;
+    box-shadow: 0 0 0.1vw 0.4vw #fff7f7, 0 0 0.4vw 0.6vw #e97272,
+      0 0 4vw 0.4vw #e50b0b, inset 0 0 1.5vw 0.4vw #e50b0b,
+      inset 0 0 0.4vw 0.2vw #e97272, inset 0 0 0.5vw 0.2vw #fff7f7;
   }
   47% {
     box-shadow: none;
   }
   49% {
-    box-shadow: 0 0 0.1vw 0.4vw #fff7f7, 0 0 0.4vw 0.6vw #e97272, 0 0 4vw 0.4vw #e50b0b, inset 0 0 1.5vw 0.4vw #e50b0b, inset 0 0 0.4vw 0.2vw #e97272, inset 0 0 0.5vw 0.2vw #fff7f7;
+    box-shadow: 0 0 0.1vw 0.4vw #fff7f7, 0 0 0.4vw 0.6vw #e97272,
+      0 0 4vw 0.4vw #e50b0b, inset 0 0 1.5vw 0.4vw #e50b0b,
+      inset 0 0 0.4vw 0.2vw #e97272, inset 0 0 0.5vw 0.2vw #fff7f7;
   }
   100% {
-    box-shadow: 0 0 0.1vw 0.4vw #fff7f7, 0 0 0.4vw 0.6vw #e97272, 0 0 4vw 0.4vw #e50b0b, inset 0 0 1.5vw 0.4vw #e50b0b, inset 0 0 0.4vw 0.2vw #e97272, inset 0 0 0.5vw 0.2vw #fff7f7;
+    box-shadow: 0 0 0.1vw 0.4vw #fff7f7, 0 0 0.4vw 0.6vw #e97272,
+      0 0 4vw 0.4vw #e50b0b, inset 0 0 1.5vw 0.4vw #e50b0b,
+      inset 0 0 0.4vw 0.2vw #e97272, inset 0 0 0.5vw 0.2vw #fff7f7;
   }
 }
 @keyframes border-glow {
@@ -138,21 +232,62 @@ li {
     box-shadow: none;
   }
   35% {
-    box-shadow: 0 0 0.1vw 0.4vw #fff7f7, 0 0 0.4vw 0.6vw #e97272, 0 0 4vw 0.4vw #e50b0b, inset 0 0 1.5vw 0.4vw #e50b0b, inset 0 0 0.4vw 0.2vw #e97272, inset 0 0 0.5vw 0.2vw #fff7f7;
+    box-shadow: 0 0 0.1vw 0.4vw #fff7f7, 0 0 0.4vw 0.6vw #e97272,
+      0 0 4vw 0.4vw #e50b0b, inset 0 0 1.5vw 0.4vw #e50b0b,
+      inset 0 0 0.4vw 0.2vw #e97272, inset 0 0 0.5vw 0.2vw #fff7f7;
   }
   37% {
     box-shadow: none;
   }
   45% {
-    box-shadow: 0 0 0.1vw 0.4vw #fff7f7, 0 0 0.4vw 0.6vw #e97272, 0 0 4vw 0.4vw #e50b0b, inset 0 0 1.5vw 0.4vw #e50b0b, inset 0 0 0.4vw 0.2vw #e97272, inset 0 0 0.5vw 0.2vw #fff7f7;
+    box-shadow: 0 0 0.1vw 0.4vw #fff7f7, 0 0 0.4vw 0.6vw #e97272,
+      0 0 4vw 0.4vw #e50b0b, inset 0 0 1.5vw 0.4vw #e50b0b,
+      inset 0 0 0.4vw 0.2vw #e97272, inset 0 0 0.5vw 0.2vw #fff7f7;
   }
   47% {
     box-shadow: none;
   }
   49% {
-    box-shadow: 0 0 0.1vw 0.4vw #fff7f7, 0 0 0.4vw 0.6vw #e97272, 0 0 4vw 0.4vw #e50b0b, inset 0 0 1.5vw 0.4vw #e50b0b, inset 0 0 0.4vw 0.2vw #e97272, inset 0 0 0.5vw 0.2vw #fff7f7;
+    box-shadow: 0 0 0.1vw 0.4vw #fff7f7, 0 0 0.4vw 0.6vw #e97272,
+      0 0 4vw 0.4vw #e50b0b, inset 0 0 1.5vw 0.4vw #e50b0b,
+      inset 0 0 0.4vw 0.2vw #e97272, inset 0 0 0.5vw 0.2vw #fff7f7;
   }
   100% {
-    box-shadow: 0 0 0.1vw 0.4vw #fff7f7, 0 0 0.4vw 0.6vw #e97272, 0 0 4vw 0.4vw #e50b0b, inset 0 0 1.5vw 0.4vw #e50b0b, inset 0 0 0.4vw 0.2vw #e97272, inset 0 0 0.5vw 0.2vw #fff7f7;
+    box-shadow: 0 0 0.1vw 0.4vw #fff7f7, 0 0 0.4vw 0.6vw #e97272,
+      0 0 4vw 0.4vw #e50b0b, inset 0 0 1.5vw 0.4vw #e50b0b,
+      inset 0 0 0.4vw 0.2vw #e97272, inset 0 0 0.5vw 0.2vw #fff7f7;
+  }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .searchedMovie {
+    width: 80%;
+  }
+  ul {
+    font-size: 18px;
+  }
+  .recmov {
+    width: 90%;
+  }
+  .neon-text {
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .searchedMovie {
+    width: 95%;
+  }
+  ul {
+    font-size: 16px;
+  }
+  .recmov {
+    width: 100%;
+    padding: 15px;
+  }
+  .neon-text {
+    padding: 0 1rem;
+    font-size: 1.2rem;
   }
 }

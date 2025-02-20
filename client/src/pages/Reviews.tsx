@@ -13,7 +13,7 @@ const Reviews: React.FC = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await getMovieReviews(movieId);
+        const response = await getMovieReviews(movieID);
         const formattedReviews: Review[] = response.data.results.map(
           (review: any) => ({
             author: review.author,
