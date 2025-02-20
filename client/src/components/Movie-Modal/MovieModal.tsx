@@ -23,14 +23,14 @@ const MovieModal: React.FC<MovieModalProps> = ({ show, onHide }) => {
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
       >
-        <Modal.Header closeButton>
+        <Modal.Header closeButton className="neon-text">
           <Modal.Title>Movie Details</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <OmdbContainer />
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={onHide}>
+          <Button className="searchmovie-btn neon-text" variant="secondary" onClick={onHide}>
             Close
           </Button>
         </Modal.Footer>

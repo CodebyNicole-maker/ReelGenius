@@ -24,6 +24,7 @@
     "react-modal": "3.16.3",
     "react-modal-video": "^2.0.0",
     "react-router-dom": "^6.23.1",
+    "react-spinner": "^0.2.7",
     "react-sticky-header": "^0.2.0",
     "react-text-rotator": "^1.2.0",
     "react-transition-group": "^4.4.5",
@@ -35,6 +36,7 @@
   "devDependencies": {
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
+    "@types/react-spinner": "^0.2.3",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react": "^1.3.2",

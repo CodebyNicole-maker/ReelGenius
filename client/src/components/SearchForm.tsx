@@ -43,7 +43,7 @@ function SearchForm({ search, setSearch, onSearchSubmit }: SearchFormProps) {
           id="search"
         />
         <br />
-        <button className="btn btn-primary" type="submit">
+        <button className="searchmovie-btn neon-text" type="submit">
           Search
         </button>
       </div>
