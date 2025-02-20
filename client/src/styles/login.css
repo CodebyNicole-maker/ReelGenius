@@ -21,3 +21,12 @@
 .login-form {
     padding: 15px;
 }
+
+.form-container {
+    width: 85%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(102, 102, 102) ;
+    border-radius: 55px;
+  }
