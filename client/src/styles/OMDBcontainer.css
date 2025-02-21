@@ -8,6 +8,11 @@
   width: 50%;
 }
 
+.movieTitle {
+  color: black;
+  font-weight: 700;
+}
+
 ul {
   text-align: left;
   font-size: 20px;
@@ -18,15 +23,25 @@ li {
   color: black;
 }
 
+span {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
 .recmov {
   border-radius: 25px;
   border: 2px solid black;
-  padding: 20px;
+  padding: 10px;
+  max-width: 375px;
 }
 
-.recmov p,
 .recmov img {
-  text-align: center;
+  margin: 10px 0;
+}
+
+.recTitle {
+  font-size: 20px;
+  font-weight: 700;
   color: black;
 }
 

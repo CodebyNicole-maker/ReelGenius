@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { searchMovie, getRecommendations, getMoviebyID } from "../utils/API";
 import SearchForm from "./SearchForm";
+import auth from "../utils/auth";
 import "../styles/OMDBcontainer.css";
 import favs from "./favs";
+
+import type { UserData } from "../interfaces/UserData";
 
 console.log(getRecommendations);
 console.log(searchMovie);
 console.log(getMoviebyID);
-
 //Todo: edit following code to only store the movie and the following movie details
 // ? this will be used in favorites caurosel and movie modal
 // ! - Title - Poster - Genre - MovieID - Plot - Director - Actors - Released - Runtime - Rating - Votes - BoxOffice - Production - Website
@@ -15,6 +17,9 @@ console.log(getMoviebyID);
 
 function OmdbContainer() {
   const [search, setSearch] = useState<string>("");
+  const [user, setUser] = useState<UserData | null>(null);
+  const [loading, setLoading] = useState(true);
+
   interface Movie {
     Title: string;
     Poster: string;
@@ -34,6 +39,32 @@ function OmdbContainer() {
   // State to store movie detail
   const [recommendations, setRecommendations] = useState<Recommendation[]>([]);
   // State to store recommendations
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      if (auth.loggedIn()) {
+        try {
+          const userData = auth.getProfile();
+          setUser({
+            id: userData.id ?? null,
+            username: userData.username ?? "Guest",
+            email: userData.email ?? null,
+            favorite_movies: userData.favorite_movies || [],
+          });
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+        } finally {
+          setLoading(false);
+        }
+      } else {
+        setLoading(false);
+      }
+    };
+
+    fetchUserData();
+  }, []);
+
+  console.log("THIS USER AAAAAAAAAAAAAAA", user?.id);
 
   const handleFormSubmit = async (query: string) => {
     try {
@@ -88,7 +119,7 @@ function OmdbContainer() {
 
         if (recommendationsResult.data.results.length > 0) {
           const recommendationList = recommendationsResult.data.results
-            .slice(0, 3)
+            .slice(0, 4)
             .map((rec: { title: string; poster_path: string; id: number }) => ({
               Title: rec.title,
               Poster: `https://image.tmdb.org/t/p/w500${rec.poster_path}`,
@@ -111,9 +142,9 @@ function OmdbContainer() {
   };
 
   //Handler for Add to Favorites button
-  const handleAddToFavorites = async (movieID: string) => {
+  const handleAddToFavorites = async (movieID: string, UserID: number) => {
     try {
-      await favs.addFavoriteMovie(Number(movieID));
+      await favs.addFavoriteMovie(Number(movieID), Number(UserID));
       console.log("Movie added to favorites:", movieID);
     } catch (error) {
       console.error("Error adding movie to favorites:", error);
@@ -127,7 +158,9 @@ function OmdbContainer() {
   return (
     <section className="omdb-container">
       <section>
-        <h1>{movie?.Title || "Search for a Movie to Begin"}</h1>
+        <h1 className="movieTitle">
+          {movie?.Title || "Search for a Movie to Begin"}
+        </h1>
         {movie ? (
           <div>
             <img
@@ -136,17 +169,25 @@ function OmdbContainer() {
               alt={movie.Title}
             />
             <h2>
-              <button
-                className="searchmovie-btn neon-text"
-                onClick={() => handleAddToFavorites(movie.MovieID)}
-              >
-                Add to Favorites
-              </button>
+              {user && (
+                <button
+                  className="searchmovie-btn neon-text"
+                  onClick={() => handleAddToFavorites(movie.MovieID, user.id)}
+                >
+                  Add to Favorites
+                </button>
+              )}
             </h2>
             <ul>
-              <li>{movie.Genre}</li>
-              <li>{movie.Plot}</li>
-              <li>{movie.Released}</li>
+              <li>
+                <span>Genre:</span> {movie.Genre}
+              </li>
+              <li>
+                <span>Description:</span> {movie.Plot}
+              </li>
+              <li>
+                <span>Release Date:</span> {movie.Released}
+              </li>
             </ul>
           </div>
         ) : (
@@ -163,13 +204,13 @@ function OmdbContainer() {
                 alt={rec.Title}
                 style={{ width: "100px" }}
               />
-              <p>{rec.Title}</p>
+              <p className="recTitle">{rec.Title}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section>
+      <section className="searchForm">
         <SearchForm
           search={search}
           setSearch={setSearch}
