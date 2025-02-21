@@ -4,7 +4,7 @@
 //Todo: Create a container to display OMDBContainer data
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import OmdbContainer from "../OMDBcontainer";
 // import SearchForm from "../SearchForm";
 
@@ -30,7 +30,11 @@ const MovieModal: React.FC<MovieModalProps> = ({ show, onHide }) => {
           <OmdbContainer />
         </Modal.Body>
         <Modal.Footer>
-          <Button className="searchmovie-btn neon-text" variant="secondary" onClick={onHide}>
+          <Button
+            className="searchmovie-btn neon-text"
+            variant="secondary"
+            onClick={onHide}
+          >
             Close
           </Button>
         </Modal.Footer>
