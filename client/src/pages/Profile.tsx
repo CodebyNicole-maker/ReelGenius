@@ -93,6 +93,8 @@ const Profile: React.FC = () => {
     return <div style={styles.profileContainer}>Loading...</div>;
   }
 
+  console.log("USER IN THE PROFILE", user);
+
   if (!user) {
     return (
       <div style={styles.profileContainer}>
