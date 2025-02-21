@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/SearchForm.css";
+import "../styles/searchform.css";
 
 interface SearchFormProps {
   search: string;
