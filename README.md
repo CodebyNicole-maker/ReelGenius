@@ -28,10 +28,11 @@ This project is perfect for **learning API integration, TypeScript, and frontend
 - [GitHub Repository](#github-repository)
 - [Technologies Used](#technologies-used)
 - [Wireframe & Page Preview](#Wireframe-&-Page-Preview)
+- [Deployed Webpage](#deployed-webpage)
 - [Credits](#credits)
 - [License](#license)
 - [How to Contribute](#how-to-contribute)
-- [Questions](#questions)
+<!-- - [Questions](#questions) -->
 
 ## Github Repository
 
@@ -60,13 +61,23 @@ This project is perfect for **learning API integration, TypeScript, and frontend
 
 ![Database Wireframe](/assets/ss%20database%20wireframe.PNG)
 
-<!-- ![portfolio about page](src/assets/portfolioaboutss.png) -->
+![ReelGenius Home page](00-Assets/Screeshots/ReelGSS.PNG)
+
+![ReelGenius Login page](00-Assets/Screeshots/ReelGloginSS.PNG)
+
+![ReelGenius Signup page](00-Assets/Screeshots/ReelGsignupSS.PNG)
+
+![ReelGenius Profile page](00-Assets/Screeshots/ReelGprofileSS.PNG)
+
+![ReelGenius Search page](00-Assets/Screeshots/ReelGsearchSS.PNG)
+
+![ReelGenius Movie page](00-Assets/Screeshots/ReelGmovieSS.PNG)
 
 <!-- <img src="./src/assets/portfolioresumess.PNG" alt="portfolio resume page"> -->
 
 ## Deployed Webpage
 
-[Deployed Link](link)
+[Deployed Link](https://reelgenius.onrender.com)
 
 ## Credits
 
@@ -81,8 +92,8 @@ This project is licensed under [MIT](https://opensource.org/licenses/MIT)
 
 ## How to Contribute
 
-[You can contact me if you would like to contribute](https://github.com/CodebyNicole-maker/ReelGenius/wiki)
+You can contact me if you would like to contribute
 
-## Questions
+<!-- ## Questions
 
-<!-- If you have any questions regarding this project you can email me at, [ osmith5@kent.edu](mailto:osmith5@kent.edu) or go to my [Github](https://github.com/Liv-5) -->
+If you have any questions regarding this project you can email me at, [ osmith5@kent.edu](mailto:osmith5@kent.edu) or go to my [Github](https://github.com/Liv-5) -->
