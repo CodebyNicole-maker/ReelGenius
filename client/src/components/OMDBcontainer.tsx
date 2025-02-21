@@ -20,6 +20,8 @@ function OmdbContainer() {
   const [user, setUser] = useState<UserData | null>(null);
   const [loading, setLoading] = useState(true);
 
+  console.log(loading);
+
   interface Movie {
     Title: string;
     Poster: string;
@@ -142,7 +144,10 @@ function OmdbContainer() {
   };
 
   //Handler for Add to Favorites button
-  const handleAddToFavorites = async (movieID: string, UserID: number) => {
+  const handleAddToFavorites = async (
+    movieID: string,
+    UserID: number | null
+  ) => {
     try {
       await favs.addFavoriteMovie(Number(movieID), Number(UserID));
       console.log("Movie added to favorites:", movieID);
